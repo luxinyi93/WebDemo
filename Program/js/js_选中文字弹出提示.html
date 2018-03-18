@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_选中文字弹出提示</title>
+    <style>
+        .content{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        .select{
+            width: 50px;
+            background-color: #ffceac;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        东汉末年，宦官当权，生灵涂炭，民不聊生。灵帝中平元年，张角兄弟发动黄巾起义，官军闻风丧胆。为抵抗黄巾，幽州太守刘焉出榜招兵。榜文前，刘备、关羽、张飞三兄弟萍水相逢。三人都有为国效力之心，而且志趣相投，于是桃园结为异姓兄弟，投靠刘焉。从军后刘、关、张显示出非凡的才能，一败黄巾于涿郡，二败黄巾于青州。
+    </div>
+    <div class="select" id="select"></div>
+
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var content = $("content");
+    var select = $("select");
+    var mouseX = 0, mouseY = 0;
+    content.onmouseup = function (event) {
+        var event = event || window.event;
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        var txt = null;
+
+        //得到选择区域的文本，该写法兼容ie678和其他浏览器
+        if (window.getSelection){
+            txt = window.getSelection().toString();
+        }else {
+            txt = document.selection.createRange().text;
+        }
+
+        //判断是否选择了文本，选择了，就执行方法；不选择就不执行
+        if(txt){
+            showSelect(mouseX, mouseY, txt);
+        }
+    }
+
+    //点击空白部分，取消选择
+    document.onmousedown = function (event) {
+        var event = event || window.event;
+//        得到点击位置所在标签的id，此处的写法兼容了ie678和其他浏览器
+        var targetId = event.target ? event.target.id : event.srcElement.id;
+        if (targetId != "select"){
+            select.style.display = "none";
+        }
+    }
+
+    //    将选择框的显示封装成方法
+    function showSelect(mousex, mousey, contentText) {
+        setTimeout(function () {
+            select.style.display = "block";
+            select.style.left = mousex + "px";
+            select.style.top = mousey + "px";
+            select.innerHTML = contentText;
+        }, 100);
+    }
+</script>

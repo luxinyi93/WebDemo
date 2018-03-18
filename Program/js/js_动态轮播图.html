@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_动态轮播图</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, ol{  list-style: none;  }
+        .box{
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            width: 3200px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul>li{
+            float: left;
+        }
+        .circle{
+            position: relative;
+        }
+        ol{
+            float: left;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        ol>li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .current{
+            background-color: #f9ff33;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="content" id="content">
+            <ul id="ul">
+                <li><img src="images/1a.jpg" alt=""></li>
+                <li><img src="images/2a.jpg" alt=""></li>
+                <li><img src="images/3a.jpg" alt=""></li>
+                <li><img src="images/4a.jpg" alt=""></li>
+                <li><img src="images/5a.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="circle" id="circle">
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function $(id) { return document.getElementById(id);}
+
+    //   封装的匀速运动的动画效果
+    function animate(obj,target){
+        clearInterval(obj.timer);  // 先清除定时器
+        var speed = obj.offsetLeft < target ? 10 : -10;  // 用来判断 应该 +  还是 -
+        obj.timer = setInterval(function() {
+            var result = target - obj.offsetLeft; // 因为他们的差值不会超过5
+            obj.style.left = obj.offsetLeft + speed + "px";
+            if(Math.abs(result)<=10)  // 如果差值不小于 5 说明到位置了
+            {
+                clearInterval(obj.timer);
+                obj.style.left = target + "px";  // 有5像素差距   我们直接跳转目标位置
+            }
+        },10)
+    }
+        //    得到标签
+        var box = $("box");
+        var ul = $("ul");
+        var ulLis = ul.children;
+        var circle = $("circle");
+
+//    创建一个ol，并添加到circle盒子中
+        var ol = document.createElement("ol");
+        circle.appendChild(ol);
+//    创建ol中的li
+        for (var i = 0; i < ulLis.length; i++){
+            var li = document.createElement("li");
+            li.innerHTML = i + 1;
+            ol.appendChild(li);
+        }
+        ol.children[0].className = "current";
+
+//    要实现无缝滚动，就要复制第一屏的内容放到最后，所以，此处要复制第一张图片
+        //  克隆并添加到最后面
+        ul.appendChild(ulLis[0].cloneNode(true));
+//    开始动画部分
+        var olLis = ol.children;
+        for (var i = 0; i < olLis.length; i++){
+            olLis[i].index = i;
+            olLis[i].onmouseover = function () {
+                for (var j = 0; j < olLis.length; j++){
+                    olLis[j].className = "";
+                }
+                this.className = "current";
+                animate(ul, (-500)*this.index);
+
+                //当鼠标放在某一个小方块上的时候，无论当前在哪一张都要移动到小方块对应的图片
+                //所以，当鼠标放上的时候，把当前的索引值赋给square和key
+                square = key = this.index;
+            }
+        }
+
+//    开始定时器
+    var timer = null;
+    //控制当前显示的是第几张图片（图片的索引值为标准）
+    var key = 0;
+    var square = 0;
+    timer = setInterval(goToScroll, 2000);
+    function goToScroll() {
+        key++;
+        //判断是否已经到最后一张了
+        if (key > ulLis.length - 1){
+            //如果已经到最后一张，就显示第一张
+            ul.style.left = 0;
+            //把k设为1，表示下一张要显示的是第二张
+            //如果设置为0， 那么就会在第一张显示4秒，有卡顿的现象
+            key = 1;
+        }
+        animate(ul, -key*500);
+
+        // 先++ 后判断
+        square++;
+        if (square > olLis.length-1){
+            square = 0;
+        }
+        for (var i = 0; i < olLis.length; i++){
+            olLis[i].className = "";
+        }
+        olLis[square].className = "current";
+    }
+
+    box.onmouseover = function () {
+        clearInterval(timer);
+    }
+    box.onmouseout = function () {
+        timer = setInterval(goToScroll, 2000);
+    }
+</script>

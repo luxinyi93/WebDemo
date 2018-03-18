@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_广告自动关闭</title>
+    <style>
+        img{
+            position: absolute;
+            top: 5px;
+        }
+        #ad_left{
+            left: 0;
+        }
+        #ad_right{
+            right: 0;
+
+        }
+    </style>
+</head>
+<body>
+    <p>五洲大陆以天权皇城统领太渊，天煞，璇玑，与宗学圣地穹苍隔扶风海相望。上古穹苍曾孕育神莲一朵于扶摇之身。扶摇（杨幂饰）幼时投太渊玄元剑派门下，因资质愚钝饱受师门鄙弃。于十六岁上得“破九霄”神功，从此武功精进。
+        为收集五洲密令，静候扶风海破海之日前往穹苍，扶摇踏上了五洲历险之路，与天权皇城太子长孙无极（阮经天饰）相识相爱，二人合力平息太渊国公篡政，天权国南戎犯境，德王宫变，与天煞烈王战北野联手夺回王权，揭示扶摇璇玑王女身世。众人陪伴扶摇前往穹苍，以血肉之躯抗衡上古邪物帝非天，历经艰险考验，终破穹苍阴谋，斩杀各路邪毒，守护五洲安泰。扶摇与无极的爱情也终成善果</p>
+    <img src="images/adver1.gif" alt="" id="ad_left">
+    <img src="images/adver2.gif" alt="" id="ad_right">
+</body>
+</html>
+<script>
+   function $(id) { return document.getElementById(id);}
+   function hidden(id) { $(id).style.display = "none";}
+//   3秒钟之后执行closeAd方法
+    setTimeout(closeAd, 3000);
+   function closeAd() {
+       hidden("ad_left");
+       hidden("ad_right");
+   }
+</script>

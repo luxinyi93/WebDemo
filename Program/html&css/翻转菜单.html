@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻转菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav{
+            width: 400px;
+            height: 40px;
+            margin: 0 auto;
+            background-color: black;
+
+        }
+        .nav>li{
+            list-style: none;
+            float: left;
+            width: 120px;
+            /*height: 40px;*/
+            background-color: #fe9477;
+            margin-left: 10px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+        .nav .nav_2{
+            /*设置定位流的时候，left和top的值一定要写，否则在不同浏览器中显示的效果可能不一样*/
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 120px;
+
+        }
+        .nav .nav_2 li{
+            list-style: none;
+            background-color: #fffc40;
+            /*将默认情况下设置为翻转180度，当ul处在hover状态时，取消反转，就能正常显示了*/
+            transform: rotateY(180deg);
+            transition: all 1s;
+            /*设置透明度 参数是0：表示完全透明，就是隐藏的状态；参数是1：表示完全显示*/
+            opacity: 0;
+        }
+        .nav>li:hover .nav_2 li{
+            transform: none;
+            opacity: 1;
+        }
+        .nav>li:hover .nav_2 li:nth-child(1){
+            transition-delay: 0ms;
+        }
+        .nav>li:hover .nav_2 li:nth-child(2){
+            transition-delay: 100ms;
+        }
+        .nav>li:hover .nav_2 li:nth-child(3){
+            transition-delay: 200ms;
+        }
+        .nav>li:hover .nav_2 li:nth-child(4){
+            transition-delay: 300ms;
+        }
+        .nav>li:hover .nav_2 li:nth-child(5){
+            transition-delay: 400ms;
+        }
+        .nav>li .nav_2 li:nth-child(5){
+            transition-delay: 0ms;
+        }
+        .nav>li .nav_2 li:nth-child(4){
+            transition-delay: 100ms;
+        }
+        .nav>li .nav_2 li:nth-child(3){
+            transition-delay: 200ms;
+        }
+        .nav>li .nav_2 li:nth-child(2){
+            transition-delay: 300ms;
+        }
+        .nav>li .nav_2 li:nth-child(1){
+            transition-delay: 400ms;
+        }
+        div{
+            width: 400px;
+            height: 350px;
+            margin: 0 auto;
+            background-color: #acffff;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+    <li>一级菜单
+        <ul class="nav_2">
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="nav_2">
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+        </ul>
+    </li>
+    <li>一级菜单
+        <ul class="nav_2">
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+            <li>
+                二级菜单
+            </li>
+        </ul>
+    </li>
+</ul>
+    <div>2005年以后，互联网进入Web2.0时代，各种类似桌面软件的Web应用大量涌现，网站的前端由此发生了翻天覆地的变化。网页不再只是承载单一的文字和图片，各种富媒体让网页的内容更加生动，网页上软件化的交互形式为用户提供了更好的使用体验，这些都是基于前端技术实现的。以前会Photoshop和Dreamweaver就可以制作网页，现在只掌握这些已经远远不够了。无论是开发难度上，还是开发方式上，现在的网页制作都更接近传统的网站后台开发，所以现在不再叫网页制作，而是叫Web前端开发。Web前端开发在产品开发环节中的作用变得越来越重要，而且需要专业的前端工程师才能做好，这方面的专业人才近几年来备受青睐。Web前端开发是一项很特殊的工作，涵盖的知识面非常广，既有具体的技术，又有抽象的理念。简单地说，它的主要职能就是把网站的界面更好地呈现给用户。</div>
+</body>
+</html>

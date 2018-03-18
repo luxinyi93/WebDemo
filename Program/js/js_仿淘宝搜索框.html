@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_仿淘宝搜索框</title>
+    <style>
+        .search{
+            width: 300px;
+            height: 30px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .search input{
+            width: 200px;
+            height: 25px;
+        }
+        .search label{
+            font-size: 12px;
+            color: #cccccc;
+            position: absolute;
+            top: 8px;
+            left: 10px;
+            cursor: text;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {return document.getElementById(id);}
+            $("content").focus();
+//            oninput在ie678中不兼容，就要用到onpropertychange来实现这个效果
+            $("content").oninput = $("content").onpropertychange = function () {
+                if (this.value == ""){
+                    $("message").style.display = "block";
+                }else {
+                    $("message").style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="search">
+        <input type="text" id="content">
+        <label for="content" id="message">必败的国际大牌</label>
+        <!--可以直接实现以上的效果，但是ie678不兼容，从ie9开始兼容-->
+        <!--<input type="text" placeholder="必败的国际大牌">-->
+    </div>
+</body>
+</html>

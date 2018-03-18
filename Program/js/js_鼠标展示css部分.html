@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_鼠标展示css部分</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 360px;
+            height: 70px;
+            padding-top: 360px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            overflow: hidden;
+            background: url("images/01big.jpg") no-repeat;
+        }
+        .box ul{
+            border-top: 1px solid #cccccc;
+        }
+        ul li{
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("div1");
+            function fn(liId, bg) {
+                var obj = document.getElementById(liId);
+                obj.onmouseover = function () {
+                    box.style.backgroundImage = bg;
+                }
+            }
+            fn("li_01", "url(images/01big.jpg)");
+            fn("li_02", "url(images/02big.jpg)");
+            fn("li_03", "url(images/03big.jpg)");
+            fn("li_04", "url(images/04big.jpg)");
+            fn("li_05", "url(images/05big.jpg)");
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="div1">
+        <ul>
+            <li id="li_01"><img src="images/01.jpg" alt=""></li>
+            <li id="li_02"><img src="images/02.jpg" alt=""></li>
+            <li id="li_03"><img src="images/03.jpg" alt=""></li>
+            <li id="li_04"><img src="images/04.jpg" alt=""></li>
+            <li id="li_05"><img src="images/05.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_操作字符串</title>
+</head>
+<body>
+    <div id="str1">How are you?</div>
+    <div id="str2">Fan!Thank you</div>
+    <button id="btn1">concat()操作</button><span></span>
+    <button id="btn2">slice(3)操作</button><span></span>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var str1 = $("str1").innerHTML;
+    var str2 = $("str2").innerHTML;
+    function operationString(id, str) {
+        $(id).onclick = function () {
+            $(id).nextSibling.innerHTML = str;
+        }
+    }
+    operationString("btn1",str1.concat(str2));
+    operationString("btn2",str1.slice(4));
+
+</script>

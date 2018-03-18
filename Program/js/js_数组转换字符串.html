@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_数组转换字符串</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: #ffceac;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="resule">
+        <div class="one demo">1</div>
+        <div>2</div>
+        <div class="demo one hello">e</div>
+        <div class="hello">g</div>
+        <div class="demo two and">d</div>
+    </div>
+    <div>4</div>
+    <div class="demo hello">h</div>
+    <div>d</div>
+<script>
+//    var txt = ["aa", "ee", "ff"];
+//    console.log(txt.join("-"));
+
+    function getClass(class_name, id){
+//        先判断浏览器是否支持getElementsByClassName方法，如果支持就直接返回；不支持在执行自己定义的方法；
+        if(document.getElementsByClassName){
+            if(id){
+                var arrId = document.getElementById(id);
+                return arrId.getElementsByClassName(class_name);
+            }else {
+                return document.getElementsByClassName(class_name);
+            }
+        }
+        var arr = [];
+        if(id){
+            <!--获得所有的标签-->
+            var arrId = document.getElementById(id);
+            var dom = arrId.getElementsByTagName("*");
+        }else {
+            <!--获得所有的标签-->
+            var dom = document.getElementsByTagName("*");
+        }
+        for(var i = 0; i < dom.length; i++){
+            var classNameArray = dom[i].className.split(" ");
+            for (var j = 0; j < classNameArray.length; j++){
+                if (classNameArray[j] == class_name){
+                    arr.push(dom[i]);
+                }
+            }
+        }
+
+        return arr;
+    }
+    console.log(getClass("hello", "resule").length);
+</script>
+</body>
+</html>

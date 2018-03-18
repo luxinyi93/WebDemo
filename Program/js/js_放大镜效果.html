@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_放大镜效果</title>
+    <style>
+        *{  margin: 0;  padding: 0;}
+        .box{
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #cccccc;
+            position: relative;
+        }
+        .big{
+            width: 450px;
+            height: 450px;
+            border: 1px solid #cccccc;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            overflow: hidden;
+            display: none;
+        }
+        .big img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .small{
+            position: relative;
+        }
+        .mask{
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.4);
+            display: none;
+            cursor: move;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box" id="fdj">
+        <div class="small">
+            <img src="images/normal.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="big">
+            <img src="images/big.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+    var fdj = $("fdj");
+    var small = fdj.children[0];
+    var mask = small.children[1];
+    var big = fdj.children[1];
+
+    small.onmouseover = function () {
+        show(mask);
+        show(big);
+    }
+    small.onmouseout = function () {
+        hide(mask);
+        hide(big);
+    }
+    small.onmousemove = function (event) {
+        event = event || window.event;
+        var moveX = event.clientX - this.offsetParent.offsetLeft - mask.offsetWidth/2;
+        var moveY = event.clientY - this.offsetParent.offsetTop - mask.offsetHeight/2;
+
+        if (moveX <= 0){
+            moveX = 0;
+        }else if(moveX >= this.offsetWidth - mask.offsetWidth){
+            moveX = this.offsetWidth - mask.offsetWidth
+        }
+
+        if (moveY <= 0){
+            moveY = 0;
+        }else if(moveY >= this.offsetHeight - mask.offsetHeight){
+            moveY = this.offsetHeight - mask.offsetHeight;
+        }
+        mask.style.left = moveX + "px";
+        mask.style.top = moveY + "px";
+
+        var bigImg = big.children[0];
+        bigImg.style.left = -moveX * (bigImg.offsetWidth/small.offsetWidth) + "px";
+        bigImg.style.top = -moveY * (bigImg.offsetHeight/small.offsetHeight) + "px";
+    }
+</script>

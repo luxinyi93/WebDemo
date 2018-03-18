@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动练习</title>
+    <style>
+        .header{
+            height: 100px;
+            width: 980px;
+            margin-bottom:10px;
+        }
+        .center{
+            height: 400px;
+            width: 980px;
+            margin-bottom: 10px;
+        }
+        .footer{
+            height: 40px;
+            width: 980px;
+            background: #a7090c;
+        }
+        .header .h_left{
+            width: 250px;
+            height: 100px;
+            background: #bb6aa0;
+            float: left;
+        }
+        .header .h_right .h_right_top{
+            width: 150px;
+            height: 50px;
+            background: #2550e1;
+            float: right;
+        }
+        .header .h_right .h_right_bottom{
+            width: 650px;
+            height: 50px;
+            background: #8c1d79;
+            float: right;
+        }
+        .center .c_left{
+            width: 320px;
+            height: 400px;
+            background: #fefc06;
+            float: left;
+        }
+        .center .c_right{
+            width: 650px;
+            height: 400px;
+            float: right;
+        }
+        .center .c_right .c_r_top{
+            width: 650px;
+            height: 350px;
+            margin-bottom: 10px;
+        }
+        .center .c_right .c_r_bottom{
+            width: 650px;
+            height: 40px;
+            background: #b95a08;
+        }
+        .center .c_right .c_r_top .top_left{
+            width: 400px;
+            height: 350px;
+            float: left;
+        }
+        .center .c_right .c_r_top .top_right{
+            width: 240px;
+            height: 350px;
+            background: #78bb3e;
+            float: right;
+        }
+        .center .c_right .c_r_top .top_left .t_l_top{
+            width: 400px;
+            height: 200px;
+            background: #ae0a79;
+            margin-bottom:10px;
+        }
+        .center .c_right .c_r_top .top_left .t_l_bottom{
+            width: 400px;
+            height: 140px;
+            background: #19b3c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="h_left"></div>
+        <div class="h_right">
+            <div class="h_right_top"></div>
+            <div class="h_right_bottom"></div>
+        </div>
+    </div>
+    <div class="center">
+        <div class="c_left"></div>
+        <div class="c_right">
+            <div class="c_r_top">
+                <div class="top_left">
+                    <div class="t_l_top"></div>
+                    <div class="t_l_bottom"></div>
+                </div>
+                <div class="top_right"></div>
+            </div>
+            <div class="c_r_bottom"></div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

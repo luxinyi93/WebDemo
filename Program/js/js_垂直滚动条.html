@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_垂直滚动条</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 500px;
+            border: 1px solid #ffab42;
+            margin: 100px;
+            padding: 3px 20px 3px 3px;
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll{
+            height: 100%;
+            width: 20px;
+            background-color: #dddddd;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .scroll .bar{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 0;
+            border-radius: 10px;
+            background-color: #ffab42;
+            cursor: pointer;
+        }
+        .content{
+            padding: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content">
+        东汉末年，宦官当权，生灵涂炭，民不聊生。灵帝中平元年，张角兄弟发动黄巾起义，官军闻风丧胆。为抵抗黄巾，幽州太守刘焉出榜招兵。榜文前，刘备、关羽、张飞三兄弟萍水相逢。三人都有为国效力之心，而且志趣相投，于是桃园结为异姓兄弟，投靠刘焉。从军后刘、关、张显示出非凡的才能，一败黄巾于涿郡，二败黄巾于青州。不久，又救出被张角打败的董卓，但董卓见刘备是白身，并不答谢。张飞大怒，要斩董卓，被刘备劝住。刘关张与朱儁、孙坚进攻黄巾，大胜。朱儁、孙坚皆受封赏，只有刘备被冷落。很久之后，刘备才被封为定州中山府安喜县尉。到任四月，督邮来县巡视，借机索要贿赂。因刘备不从而欲存心陷害，张飞得知后怒鞭督邮，三人被迫弃去职位，投了刘恢。不久参加平定鱼阳之战，刘备因立功被任平原令，开始拥有一支人马。[2]
+        中平六年，汉灵帝死，少帝继位，为外戚大将军何进所制。十常侍诱杀何进，袁绍等领兵诛杀宦官，西凉刺史董卓趁机进兵京师、驱逐袁绍、灭丁原收吕布、废少帝立献帝，专权朝野，并毒死刘辩。司徒王允借寿诞之引，召集满朝公卿商议，曹操自告奋勇前往行刺，为董卓发觉，危急中献上自王允处借来的七星宝刀而脱身。[2]
+        曹操逃至中牟县为当时县令陈宫所获。陈宫义释曹操，并弃官随之离去。途经曹操之亲戚吕伯奢家时，因误会而杀害吕伯奢一家，并说出“宁教我负天下人，休教天下人负我”之语。陈宫愤怒，独自离开。曹操只身前往陈留，散尽家资招蓦兵马，亲友皆来相投，亦有了一支人马。曹操更写信给袁绍，并会齐中原豪杰。[2]
+    </div>
+    <div class="scroll">
+        <div class="bar"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var content = box.children[0];  //得到内容盒子
+    var scroll = box.children[1];   //得到右侧小盒子
+    var scrollBar = scroll.children[0]; //得到滚动条
+
+    //设置滚动条的高度，按照比例设置。
+    var scrollBarHeight = box.offsetHeight / content.offsetHeight * box.offsetHeight;
+    scrollBar.style.height = scrollBarHeight + "px";
+
+    BarScrollStart(scrollBar);
+    //滚动条按下的方法
+    function BarScrollStart(bar) {
+        bar.onmousedown = function (event) {
+            var event = event || window.event;
+            var t = event.clientY - this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var event = event || window.event;
+                var scrollTop = event.clientY - t;
+                if (scrollTop <= 0){
+                    scrollTop = 0;
+                }else if(scrollTop >= scroll.offsetHeight - bar.offsetHeight){
+                    scrollTop = scroll.offsetHeight - bar.offsetHeight;
+                }
+                bar.style.top = scrollTop + "px";
+
+//                文字区域跟随滚动条儿滚动的效果
+                var contentTop = (content.offsetHeight - scroll.offsetHeight) / (scroll.offsetHeight - bar.offsetHeight) * scrollTop;
+                content.style.top = -contentTop + "px";
+
+                //用于兼容IE, 避免在滑动的时候选中文本或图片
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+
+
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+
+
+        }
+    }
+
+
+
+</script>

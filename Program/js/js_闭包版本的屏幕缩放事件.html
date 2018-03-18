@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_闭包版本的屏幕缩放事件</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    var key = 0;
+
+    window.onresize = throttle(function () {
+        demo.innerHTML = window.innerWidth || document.documentElement.clientWidth;
+        key++;
+        console.log(key);
+    }, 300);
+
+    //使用闭包对onresize进行节流
+    function throttle(fn, delay){
+        var timer = null;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(fn, delay);
+        }
+    }
+</script>

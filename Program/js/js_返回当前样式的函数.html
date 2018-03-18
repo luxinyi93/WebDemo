@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_返回当前样式的函数</title>
+    <style>
+        .all{
+            width: 200px;
+            height: 200px;
+            background-color: #ffceac;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="all"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    function getStyle(obj, attr) {
+        if (obj.currentStyle){
+            return obj.currentStyle[attr]; //兼容ie浏览器
+        }else {
+            // 兼容标准浏览器的
+            return window.getComputedStyle(obj, null)[attr];
+        }
+    }
+
+</script>

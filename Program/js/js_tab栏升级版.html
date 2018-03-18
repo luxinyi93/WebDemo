@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_tab栏升级版</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 100px 100px;
+        }
+        .top{
+            width: 350px;
+        }
+        .top>span{
+            display: inline-block;
+            width: 80px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #ffceac;
+            cursor: pointer;
+        }
+        .bottom{
+
+        }
+        .bottom>ul{
+            list-style-type: none;
+            overflow: hidden;
+            height: 100px;
+        }
+        .bottom>ul>li{
+            width: 350px;
+            height: 100px;
+            background-color: #ffab42;
+            display: none;
+        }
+
+        .box .top .span_select{
+            background-color: #ffab42;
+        }
+        .box .bottom .li_select{
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //此时tab栏有三个，所以要用id来区分，但是每个tab栏的操作又是相同的，可以封装成一个函数，每个tab栏都可以调用。
+          function tab(id) {
+              var target = document.getElementById(id);
+              var spans = target.getElementsByTagName("span");
+              var lis = target.getElementsByTagName("li");
+              //timer要声明在外面
+              var timer = null;
+
+              for (var i = 0, len = spans.length; i < len; i++){
+
+                    //闭包的方式实现效果
+                  spans[i].onmouseover = function (num) {
+                      return function () {
+                          clearTimeout(timer);
+                          timer = setTimeout(function () {
+                              for (var j = 0; j < len; j++){
+                                  spans[j].className = "";
+                                  lis[j].className = "";
+                              }
+                              spans[num].className = "span_select";
+                              lis[num].className = "li_select";
+                          }, 300);
+                      }
+                  }(i);
+                    //当鼠标一开的时候就清除了定时器，就不再执行相应的操作了。
+                  spans[i].onmouseout = function () {
+                      clearTimeout(timer);
+                  }
+              }
+          }
+          tab("one");
+          tab("two");
+          tab("three");
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="one">
+        <div class="top">
+            <span class="span_select">新闻</span>
+            <span>娱乐</span>
+            <span>军事</span>
+            <span>社会</span>
+        </div>
+        <div class="bottom">
+            <ul>
+                <li class="li_select">新闻模块</li>
+                <li>娱乐模块</li>
+                <li>军事模块</li>
+                <li>社会模块</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box" id="two">
+        <div class="top">
+            <span class="span_select">新闻</span>
+            <span>娱乐</span>
+            <span>军事</span>
+            <span>社会</span>
+        </div>
+        <div class="bottom">
+            <ul>
+                <li class="li_select">新闻模块</li>
+                <li>娱乐模块</li>
+                <li>军事模块</li>
+                <li>社会模块</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box" id="three">
+        <div class="top">
+            <span class="span_select">新闻</span>
+            <span>娱乐</span>
+            <span>军事</span>
+            <span>社会</span>
+        </div>
+        <div class="bottom">
+            <ul>
+                <li class="li_select">新闻模块</li>
+                <li>娱乐模块</li>
+                <li>军事模块</li>
+                <li>社会模块</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

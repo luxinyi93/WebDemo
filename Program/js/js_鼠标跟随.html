@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_鼠标跟随</title>
+    <style>
+        img{
+            width: 66px;
+            height: 66px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/mouse.jpg" alt="" id="mouse_icon">
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+   var mouseIcon = $("mouse_icon");
+
+   var leaderX = 0, leaderY = 0, targetX = 0, targetY = 0;
+
+   document.onmousemove = function (event) {
+       var event = event || window.event;
+       targetX = event.clientX - mouseIcon.offsetWidth/2;
+       targetY = event.clientY - mouseIcon.offsetHeight/2;
+   }
+   setInterval(function () {
+        leaderX = leaderX + (targetX - leaderX)/10;
+        leaderY = leaderY + (targetY - leaderY)/10;
+
+        mouseIcon.style.left = leaderX + "px";
+        mouseIcon.style.top = leaderY + "px";
+    }, 10);
+</script>

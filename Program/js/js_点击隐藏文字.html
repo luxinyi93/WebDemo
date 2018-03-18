@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_点击隐藏文字</title>
+    <style>
+        input, button{
+            padding: 0;
+            border:0 none;
+        }
+        .search{
+            width: 258px;
+            height: 40px;
+            background-color: #cccccc;
+        }
+        .search input{
+            width: 208px;
+            height: 40px;
+            background: url("images/left.jpg") no-repeat;
+            outline-style: none;
+            color: #cccccc;
+            padding-left: 8px;
+            float: left;
+        }
+        .search button{
+            width: 42px;
+            height: 40px;
+            background: url("images/right.jpg") no-repeat;
+            cursor: pointer;
+            float: right;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var txt = document.getElementById("content");
+            txt.onfocus = function () {
+                if (txt.value == "请输入..."){
+//                 当用户是第一次获得焦点的时候，或者表单中的内容还是默认的文字的时候，此时清空表单中的内容
+                    txt.value = "";
+                    txt.style.color = "#333"
+                }
+            }
+            txt.onblur = function () {
+                if (txt.value == ""){
+                    txt.value = "请输入...";
+                    txt.style.color = "#ccc"
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="search">
+        <input type="text" value="请输入..." id="content"><button></button>
+    </div>
+</body>
+</html>

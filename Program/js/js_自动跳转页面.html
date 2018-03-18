@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_自动跳转页面</title>
+</head>
+<body>
+    <div id="prompt"></div>
+</body>
+</html>
+<script>
+    var prompt = document.getElementById("prompt");
+    var count = 8;
+    setInterval(function () {
+        count--;
+        if (count <= 0){
+            window.location.href = "http://www.baidu.com";
+        }else {
+            prompt.innerHTML = "<a href = 'http://www.baidu.com'>"+ count +"秒后跳转到主页面</a>";
+        }
+    }, 1000);
+</script>

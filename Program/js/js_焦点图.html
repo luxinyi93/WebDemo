@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_焦点图</title>
+    <style>
+        *{  margin: 0;  padding: 0;}
+        ul, ol{ list-style-type: none;}
+        img{ vertical-align: top;}
+        .slider{
+            width: 490px;
+            height: 170px;
+            border: 1px solid #cccccc;
+            padding: 5px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .slider .inner{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner ul{
+            width: 600%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .inner li{
+            float: left;
+        }
+        .slider ol{
+            position: absolute;
+            left: 50%;
+            margin-left: -80px;
+            bottom: 10px;
+        }
+        .slider ol li{
+            float: left;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            background-color: #fff;
+            margin-right: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .slider ol li.current{
+            background-color: yellow;
+        }
+        .inner span{
+            width: 30px;
+            height: 60px;
+            line-height: 60px;
+            position: absolute;
+            bottom: 50px;
+            font-size: 26px;
+            background-color: orange;
+            cursor: pointer;
+        }
+        .inner .left{
+            left: 0;
+        }
+        .inner .right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider" id="carouselFigure">
+        <div class="inner">
+            <ul>
+                <li><img src="images/111.jpg" alt=""></li>
+                <li><img src="images/222.jpg" alt=""></li>
+                <li><img src="images/333.jpg" alt=""></li>
+                <li><img src="images/444.jpg" alt=""></li>
+                <li><img src="images/555.jpg" alt=""></li>
+            </ul>
+            <span id="span_left" class="left"><</span>
+            <span id="span_right" class="right">></span>
+
+        </div>
+        <ol>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+    </div>
+</body>
+</html>
+<script>
+    var cf = document.getElementById("carouselFigure");
+    var ul = cf.children[0].children[0];
+    var ol = cf.children[1];
+    var left = document.getElementById("span_left");
+    var right = document.getElementById("span_right");
+
+
+//    var olLis = ol.children;
+//    var len = olLis.length;
+//    for (var i = 0; i < len; i++){
+//        olLis[i].index = i;
+//        olLis[i].onmouseover = function () {
+//            for (var j = 0; j < len; j++){
+//                olLis[j].className = "";
+//            }
+//            this.className = "current";
+//            target = -this.index * 490;
+//        }
+//    }
+//    var leader = 0, target = 0;
+////    定时器是一直开着的
+//    setInterval(function () {
+//        leader = leader + (target - leader)/10;
+//        ul.style.left = leader + "px";
+//    }, 30);
+
+    var star = 0, end = 0;
+    left.onclick = function () {
+        end += 490;
+    }
+    right.onclick = function () {
+        end -= 490;
+    }
+    setInterval(function () {
+        if (end >= 0){
+            end = 0;
+        }else if (end <= -1960){
+            end = -1960;
+        }
+        star = star + (end - star)/10;
+        ul.style.left = star + "px";
+        console.log(star);
+    }, 30);
+
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_判断表单内容</title>
+    <style>
+        .box{
+            text-align: center;
+        }
+        span{
+            display: inline-block;
+            width: 150px;
+            height: 20px;
+            line-height: 20px;
+            background-color: #eee;
+            border: 1px solid #cccccc;
+            font-size: 12px;
+            text-align: left;
+            padding-left: 20px;
+            color: #999;
+        }
+        .right{
+            background: url("images/right.png") no-repeat 3px 3px;
+            border: 1px solid #ACFFAC;
+            color: #5EFF5E;
+        }
+        .wrong{
+            background: url("images/wrong.png") no-repeat 3px 3px;
+            border: 1px solid #FFAC91;
+            color: #FF6B39;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {return document.getElementById(id);}
+//            自动获得焦点
+            $("score").focus();
+            $("score").onblur = function () {
+                if (this.value == ""){
+                    $("result").className = "wrong";
+                    $("result").innerHTML = "该项不能为空";
+                }else if (isNaN(this.value)){
+                    $("result").className = "wrong";
+                    $("result").innerHTML = "请输入数字";
+                }else if(this.value > 150 || this.value < 0){
+                    $("result").className = "wrong";
+                    $("result").innerHTML = "请输入0~150以内的数字";
+                }else {
+                    $("result").className = "right";
+                    $("result").innerHTML = "内容正确";
+                }
+            }
+//            鼠标经过选择表单
+            $("score").onmouseover = function () {
+                this.select();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        语文：<input type="text" id="score">
+        <span id="result">请输入你的成绩</span>
+    </div>
+</body>
+</html>

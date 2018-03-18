@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_倒计时效果</title>
+    <style>
+        .box{
+            height: 50px;
+            color: red;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.getElementById("div");
+            var endTime = new Date("2018/03/10 08:15:00");
+            setInterval(clock, 1000);
+            function clock() {
+//                获取当前时间，必须是最新的时间，以毫秒为单位的
+                var nowTime = new Date();
+//                得到开始时间和结束时间的差值，以秒为单位
+                var time = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+//                获得距离开始时间的天数
+                var day = parseInt(time / 3600 / 24);
+//                获得剩余的小时数
+                var hour = parseInt(time / 3600 % 24);
+//                获得剩余的额分钟数
+                var minute = parseInt(time / 60 % 60);
+//                获得剩余的秒数
+                var second = parseInt(time % 60);
+
+                day > 10 ? day : day = "0"+day;
+                hour > 10 ? hour : hour = "0"+hour;
+                minute > 10 ? minute : minute = "0"+minute;
+                second > 10 ? second : second = "0"+second;
+
+                div.innerHTML = "距离抢购时间开始还有："+day+"天 "+hour+"小时 "+minute+"分钟 "+second+"秒";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div" class="box"></div>
+</body>
+</html>

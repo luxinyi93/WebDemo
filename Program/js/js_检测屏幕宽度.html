@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_检测屏幕宽度</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+    window.onresize = function () {
+//        在浏览器第一次打开的时候是没有颜色的，因为此时没有窗口大小的变换。
+        var clientWidth = client().width;
+        if (clientWidth >= 960){
+            document.body.style.backgroundColor = "red";
+        }else if (clientWidth >= 650){
+            document.body.style.backgroundColor = "green";
+        }else {
+            document.body.style.backgroundColor = "yellow";
+        }
+    }
+</script>

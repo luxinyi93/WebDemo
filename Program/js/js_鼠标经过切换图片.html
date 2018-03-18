@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_鼠标经过切换图片</title>
+</head>
+<body>
+    <img src="images/yun1.jpg" alt="" id="images">
+    <script>
+        var images = document.getElementById("images");
+        images.onmousemove = function () {
+            images.src = "images/yun2.jpg";
+        }
+        images.onmouseout = function () {
+            images.src = "images/yun1.jpg";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_排他思想</title>
+    <style>
+        .select{
+            background-color: #9fff59;
+        }
+    </style>
+    <script>
+        //排他思想就是先把别人都干掉，只剩下自己。
+        window.onload = function () {
+            var buttons = document.getElementsByTagName("button");
+            var len = buttons.length;
+            for(var i = 0; i < len; i++){
+//               给数组button设置一个属性叫index，代表索引值；
+                buttons[i].index = i;
+                buttons[i].onclick = function () {
+//                    点击的时候输出该按钮的索引值
+                    alert(this.index);
+//                  先把所有的button的类名都设为空
+                    for(var i = 0; i < len; i++){
+                        buttons[i].className = "";
+                    }
+//                    只留下自己的类名
+                    this.className = "select";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button>111</button>
+    <button>222</button>
+    <button>333</button>
+    <button>444</button>
+    <button>555</button>
+    <button>666</button>
+</body>
+</html>

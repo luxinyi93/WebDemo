@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网易注册界面</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea, th, td {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f9f9f9;
+        }
+        /*父子关系的标签最好用padding*/
+        .header{
+            width: 960px;
+            height: 81px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding-top:30px;
+            padding-bottom: 24px;
+        }
+        .header .logo{
+            background: url("images/glb_v2.png") no-repeat;
+            width: 644px;
+            height: 27px;
+            float: left;
+        }
+        .header .logo a{
+            width: 130px;
+            height: 24px;
+            display: inline-block;
+        }
+        .header .link{
+            width: 150px;
+            height: 13px;
+            float: right;
+            text-align: right;
+        }
+        .header .link a{
+            text-decoration: none;
+            font-size: 13px;
+            color: #003399;
+
+        }
+        .content{
+            width: 960px;
+            height: 747px;
+            margin: 0 auto;
+        }
+        .content .top{
+            width: 960px;
+            height: 38px;
+            background: url("images/top_content.jpg") repeat-x;
+        }
+        .content .top .top_left{
+            width: 960px;
+            height: 38px;
+            background: url("images/top_left.jpg") no-repeat left 0;
+        }
+        .content .top .top_right{
+            width: 960px;
+            height: 38px;
+            background: url("images/top_right.jpg") no-repeat right 0;
+        }
+        .content .top p{
+            font-size: 14px;
+            color: white;
+            line-height: 38px;
+            text-indent: 2em;
+        }
+        .content .bottom .left{
+            box-sizing: border-box;
+            width: 643px;
+            height: 709px;
+            background: #ffffff;
+            float: left;
+            border-left: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            padding-top: 50px;
+            padding-left: 80px;
+
+        }
+        .content .bottom .right{
+            box-sizing: border-box;
+            width: 317px;
+            height: 709px;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            float: right;
+            background: #f5f5f5 url("images/reg_master.gif") no-repeat 45px 106px;
+        }
+        /*导航条和选项卡首先考虑用ul*/
+        .content .bottom .left .navigation{
+            box-sizing: border-box;
+            width: 560px;
+            height: 59px;
+            background: url("images/tab.jpg") no-repeat;
+        }
+        .content .bottom .left .list{
+            width: 560px;
+            height: 373px;
+
+        }
+        .content .bottom .left .navigation ul{
+            list-style: none;
+        }
+        .content .bottom .left .navigation ul li{
+            width: 137px;
+            height: 34px;
+            float: left;
+            line-height: 34px;
+            text-align: center;
+        }
+        .content .bottom .left .list .email{
+            width: 413px;
+            height: 28px;
+        }
+        .content .bottom .left .list .email .special{
+            width: 310px;
+        }
+        .content .bottom .left .list .email .star{
+            color: red;
+            /*span有默认的宽度，必须设置宽度为0，否则就会破坏样式*/
+            width: 0px;
+        }
+        .content .bottom .left .list .email span{
+            width: 67px;
+            height: 28px;
+            float: left;
+            font-size: 12px;
+            line-height: 28px;
+            text-align: right;
+        }
+        .content .bottom .left .list p{
+            font-size: 12px;
+            margin-left:86px;
+            line-height: 28px;
+        }
+
+        .content .bottom .left .list .email div{
+            width: 325px;
+            height: 28px;
+            float: right;
+        }
+        .content .bottom .left .list .email input{
+            width: 214px;
+            /*input默认有边框，所以设置和父控件宽度相同，就会超出父控件的范围*/
+            height: 24px;
+        }
+        .content .bottom .left .list .email select{
+            height: 28px;
+        }
+        .content .bottom .left .list .email img{
+            box-sizing: border-box;
+            width: 100px;
+            height: 28px;
+            float: left;
+
+        }
+        .content .bottom .left .list .email .code_img{
+            /*如果想让多个盒子顶部对齐，可以设置多个盒子都浮动起来*/
+            box-sizing: border-box;
+            float: left;
+            margin-right: 10px;
+        }
+        .content .bottom .left .list input[type=submit]{
+            width: 119px;
+            height: 37px;
+            border: none;
+            font-size: 16px;
+            margin-top: 20px;
+            color: white;
+            background: url("images/glb_v2.png") no-repeat 0px -360px;
+        }
+
+
+
+        .footer{
+            width: 960px;
+            height: 40px;
+            margin: 0 auto;
+        }
+        .footer .link_bottom{
+            color: #999999;
+            font-size: 10px;
+            text-align: center;
+        }
+        .footer .link_bottom a{
+            text-decoration: none;
+            color: #999999;
+            font-size: 10px;
+            line-height: 40px;
+            margin: 0 auto;
+        }
+        .footer .link_bottom p{
+            display: inline-block;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="#" title="网易163免费邮"></a>
+            <a href="#" title="网易126免费邮"></a>
+            <a href="#" title="网易yeah.net免费邮"></a>
+        </div>
+        <div class="link">
+            <a href="#">了解更多</a>
+            |
+            <a href="#">反馈意见</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="top">
+            <div class="top_left">
+                <div class="top_right"><p>欢迎注册无限容量的网易邮箱！邮件地址可以登录使用其他网易旗下产品。</p></div>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <div class="navigation">
+                   <ul>
+                       <li>注册字母邮箱</li>
+                       <li>注册手机号码邮箱</li>
+                       <li>注册VIP邮箱</li>
+                   </ul>
+                </div>
+                <div class="list">
+                    <div class="email">
+                        <span><span class="star">*</span>邮件地址</span>
+                        <div>
+                            <input type="text">@<select>
+                                <option>163.com</option>
+                                <option>126.com</option>
+                                <option>yeah.net</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p>6~18个字符，可使用字母、数字、下划线，需以字母开头</p>
+
+                    <div class="email">
+                        <span><span class="star">*</span>密码</span>
+                        <div>
+                            <input type="password" class="special">
+                        </div>
+                    </div>
+                    <p>6~16个字符，区分大小写</p>
+
+                    <div class="email">
+                        <span><span class="star">*</span>确认密码</span>
+                        <div>
+                            <input type="password" class="special">
+                        </div>
+                    </div>
+                    <p>请再次填写密码</p>
+
+                    <div class="email">
+                        <span><span class="star" class="special">*</span>手机号码</span>
+                        <div>
+                            <input type="number" class="special">
+                        </div>
+                    </div>
+                    <p>忘记密码时，可以通过该手机号码快速找回密码</p>
+
+                    <div class="email">
+                        <span><span class="star">*</span>验证码</span>
+                        <div>
+                            <input type="text" class="code_img">
+                            <img src="images/call.jpg">
+                        </div>
+                    </div>
+                    <p>请填写图片中的字符，不区分大小写</p>
+
+                    <p>
+                        <input type="checkbox" checked="checked">
+                        同意<a href="#">"服务条款"</a>和<a href="#">"隐私权相关政策"</a>
+                    </p>
+
+                    <p>
+                        <input type="submit" value="提交注册">
+                    </p>
+
+
+                </div>
+            </div>
+            <div class="right"></div>
+
+        </div>
+    </div>
+    <div class="footer">
+       <div class="link_bottom">
+           <a href="#">关于网易</a>
+           <a href="#">关于网易免费邮</a>
+           <a href="#">邮箱官方博客</a>
+           <a href="#">客户服务</a>
+           <a href="#">隐私政策</a>
+           <p>| 网易公司版权所有 © 1997-2017</p>
+       </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_传参显示盒子</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ffab42;
+            margin: 20px;
+            display: none;
+        }
+    </style>
+    <script>
+        function fn(obj) {
+            var target = document.getElementById(obj);
+            target.style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="fn('div1')">第一个按钮</button>
+    <button onclick="fn('div2')">第二个按钮</button>
+    <button onclick="fn('div3')">第三个按钮</button>
+    <button onclick="fn('div4')">第四个按钮</button>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+</body>
+</html>

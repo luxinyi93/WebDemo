@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>练习题</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*判断数字能否被5、6整除*/
+		var number = parseInt(prompt("数字："));
+		if (number % 5 == 0 && number%6 == 0) {
+			alert("能同时被5和6整除");
+		}else if (number%6 == 0) {
+			alert("能被6整除");
+		}else if(number%5 == 0){
+			alert("能被5整除");
+		}else{
+			alert("既不能被5整除也不能被6整除");
+		}
+		/*找出1~1000之中，所有能被5整除，或者被6整除的数字。在控制台输出。*/
+		// for(i = 1; i < 100; i++){
+		// 	if (i%5 == 0 || i%6 == 0) {
+		// 		console.log(i);
+		// 	}
+		// }
+		/*用户输入一个数字，列出所有它能够整除的数字。*/
+		var number = parseInt(prompt("数字："));
+		for(i = 1; i <= number; i++){
+			if (number%i == 0) {
+				console.log(i);
+			}
+		}
+	</script>
+</body>
+</html>

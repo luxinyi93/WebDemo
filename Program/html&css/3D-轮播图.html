@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D-轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            /*如果要整个ul有透视的效果，就要给它的父元素添加效果*/
+            perspective: 500px;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            margin: 100px auto;
+            position: relative;
+            transform: rotateX(0deg) rotateY(0deg);
+            /*设置3d的模式*/
+            transform-style: preserve-3d;
+            /*设置动画的效果*/
+            animation: move 5s linear 0s infinite none;
+        }
+        ul li{
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            text-align: center;
+            line-height: 200px;
+            font-size: 90px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        /*上面*/
+        ul li:nth-child(1){
+            background-color: #ff87c6;
+            transform: rotateX(90deg) translateZ(100px) scale(2,1);
+
+        }
+        /*后面*/
+        ul li:nth-child(2){
+            background-color: #88ffee;
+            transform: rotateX(180deg) translateZ(100px) scale(2,1);
+
+        }
+        /*下面*/
+        ul li:nth-child(3){
+            background-color: #fffc40;
+            transform: rotateX(270deg) translateZ(100px) scale(2,1);
+        }
+        /*前面*/
+        ul li:nth-child(4){
+            background-color: #ff603d;
+            transform: rotateX(360deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(5){
+            background-color: #4589ff;
+            transform: translateX(200px) rotateY(90deg);
+        }
+        ul li:nth-child(6){
+            background-color: #68ff95;
+            transform: translateX(-200px) rotateY(90deg);
+        }
+        @keyframes move {
+            from{
+                transform: rotateX(0deg);
+            }
+            to{
+                transform: rotateX(360deg);
+            }
+        }
+        /*设置图片和li的大小相同，当父元素被拉伸的时候，子元素也会被拉伸*/
+        ul li img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

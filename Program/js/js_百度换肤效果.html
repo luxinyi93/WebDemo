@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_百度换肤效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/1.jpg") top center;
+        }
+        .box{
+            height: 200px;
+            background: rgba(255,255,255,.3);
+            text-align: center;
+            line-height:200px;
+        }
+        .box img{
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var pic_01 = document.getElementById("pic_01");
+            var pic_02 = document.getElementById("pic_02");
+            var pic_03 = document.getElementById("pic_03");
+            pic_01.onclick = function () {
+                document.body.style.backgroundImage = "url(images/1.jpg)";
+            }
+            pic_02.onclick = function () {
+                document.body.style.backgroundImage = "url(images/2.jpg)";
+            }
+            pic_03.onclick = function () {
+                document.body.style.backgroundImage = "url(images/3.jpg)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <img src="images/1.jpg" alt="" id="pic_01">
+        <img src="images/2.jpg" alt="" id="pic_02">
+        <img src="images/3.jpg" alt="" id="pic_03">
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_prototype原型</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name, age) { //构造函数，只写属性
+        this.name = name;
+        this.age = age;
+    }
+    //用prototype的好处是，他们拥有共同的父亲
+    Person.prototype.showName = function () {
+        console.log("我是" + this.name);
+    }
+    var demo1 = new Person("刘德华", 30);
+    var demo2 = new Person("梁朝伟", 20);
+
+    //执行函数
+    demo1.showName();
+    console.log(demo1.showName == demo2.showName);
+</script>

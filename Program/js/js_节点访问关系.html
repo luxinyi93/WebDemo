@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_节点访问关系</title>
+    <script>
+        window.onload = function () {
+            var liId = document.getElementById("one");
+//            此处是为了兼容ie678和其他浏览器，要先写其他浏览器兼容的；后写ie678兼容的
+            var div_next = liId.nextElementSibling || liId.nextSibling;
+            var div_up = liId.previousElementSibling || liId.previousSibling;
+            div_next.style.backgroundColor = "red";
+            div_up.style.backgroundColor = "green";
+
+            var ul = document.getElementById("demo");
+            var lis = ul.childNodes;//得到全部的孩子（直系子元素）
+            for (var i = 0; i < lis.length; i++){
+                if (lis[i].nodeType == 1){
+                    lis[i].style.backgroundColor = "pink";
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<ul id="demo">
+    <li>1234567</li>
+    <li>1234567</li>
+    <li id="one">1234567</li>
+    <li>1234567</li>
+    <li>1234567</li>
+    <li>1234567</li>
+</ul>
+</body>
+</html>

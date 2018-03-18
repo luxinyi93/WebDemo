@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_字符串长度</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var txt = "asddasdafd";
+    function getStringLength(str) {
+        var sum = 0;
+        var count = 0;
+        for (var i = 0; i < str.length; i++){
+            count = str.charCodeAt(i);
+            if (count >= 0 && count <= 127){
+                sum++;
+            }else {
+                sum += 2;
+            }
+        }
+        console.log(sum);
+    }
+    getStringLength(txt);
+</script>

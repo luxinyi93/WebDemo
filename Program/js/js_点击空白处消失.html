@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_点击空白处消失</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            height: 2000px;
+        }
+        .mask{
+            width: 100%;
+            height: 100%;
+            background-color: #cccccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .show{
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="javaScript:;" id="login">登录</a>
+<div class="mask" id="mask"></div>
+<div class="show" id="info"></div>
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+    var login = $("login");
+    var mask = $("mask");
+    var info = $("info");
+    login.onclick = function (event) {
+        show(mask);
+        show(info);
+//        页面的滚动条消失
+        document.body.style.overflow = "hidden";
+
+        var event = event || window.event;
+//        以下是为了阻止冒泡现象
+        if (event && event.stopPropagation){
+//            w3c标准的
+            event.stopPropagation();
+        }else {
+//            ie678标准
+            event.cancleBubble = true;
+        }
+    }
+
+    document.onclick = function (event) {
+        var event = event || window.event;
+
+//        得到当前点击的标签的id
+        var targetId = event.target ? event.target.id : event.srcElement.id;
+        if (targetId != "info"){
+            hide(mask);
+            hide(info);
+            document.body.style.overflow = "visible";
+        }
+
+    }
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_日历</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 250px;
+            background-color: skyblue;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box p{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+        }
+        .box span{
+            display: block;
+            width: 125px;
+            height: 125px;
+            line-height: 125px;
+            background-color: #ffab42;
+            margin: 0 auto;
+            font-size: 34px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("div");
+            var childrens = box.children;
+                var date = new Date();
+                var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                childrens[0].innerHTML = date.getFullYear() + "年" + (date.getMonth()+1) + "月" + date.getDate() + "日" + "  " + arr[date.getDay()];
+                childrens[1].innerHTML = date.getDate();
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="div">
+        <p>2017年1月20日 星期六</p>
+        <span></span>
+    </div>
+</body>
+</html>

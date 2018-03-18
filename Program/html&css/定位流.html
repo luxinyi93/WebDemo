@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相对定位</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+
+        }
+        .box1{
+            background-color: #21ff22;
+        }
+        .box2{
+            background-color: #fcff19;
+            /*相对定位：relative*/
+            position: relative;
+            top: 20px;
+            left: 20px;
+            margin-bottom: 20px;
+        }
+        .box3{
+            background-color: #1012ff;
+        }
+        input{
+            width: 200px;
+            height: 50px;
+        }
+        img{
+            width: 100px;
+            height: 50px;
+            position: relative;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<hr>
+<input type="text">
+<img src="images/call.jpg">
+</body>
+</html>

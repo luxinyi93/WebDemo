@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定定位练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav{
+            width: 100%;
+            height: 44px;
+            background-color: #b3b3b3;
+            background:url("images/nav.png") no-repeat center top;
+            position: fixed;
+        }
+        .content{
+            width: 1055px;
+            height: 8010px;
+            background:url("images/cont.png") repeat-y center;  margin: 0 auto;
+        }
+        .content .left{
+            width: 50px;
+            height: 200px;
+            background-color: #ffc3fe;
+            position: fixed;
+            left: 0;
+            top: 200px;
+
+        }
+        .content .right{
+            width: 50px;
+            height: 200px;
+            background-color: #ffc3fe;
+            position: fixed;
+            right: 0;
+            top: 200px;
+        }
+        a{
+            width: 50px;
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            background-color: #a7a7a7;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+        <div class="nav">
+        </div>
+        <div class="content">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <a href="#">返回</a>
+
+</body>
+</html>

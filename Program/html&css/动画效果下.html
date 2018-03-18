@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果下</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #88ffee;
+            border: 1px solid #fe9477;
+            position: absolute;
+            animation-name: lxy;
+            animation-duration: 5s;
+            /*指定等待状态和结束状态的样式
+            backwards:等待状态的时候显示动画的第一帧
+            forwards:结束状态的时候显示动画的最后一帧的样子
+            none:无效果
+            both:等待时显示第一帧，结束状态时保持动画最后一帧*/
+            animation-fill-mode: backwards;
+
+        }
+        @keyframes lxy {
+            0%{
+                left: 0;
+                top: 0;
+            }
+            25%{
+                left: 500px;
+                top: 0;
+            }
+            50%{
+                left: 500px;
+                top: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

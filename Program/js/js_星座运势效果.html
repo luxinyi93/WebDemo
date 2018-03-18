@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_星座运势效果</title>
+    <style>
+        .box{
+            width: 350px;
+            height: 250px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            padding: 15px;
+        }
+        .title{
+            width: 100%;
+            line-height: 35px;
+            color: #0873c0;
+        }
+        .content_top{
+            overflow: hidden;
+        }
+        .icon{
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-right: 20px;
+            background: url("images/xingzuo_icon.png") no-repeat;
+        }
+        .right span{
+            display: inline-block;
+            width: 80px;
+            height: 13px;
+        }
+        .yunshi{
+            background: url("images/yunshi.png") no-repeat right top;
+            position: relative;
+        }
+        .yunshi .star{
+            width: 0;
+            background: url("images/yunshi.png") no-repeat left bottom;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .content_bottom{
+            padding-top: 15px;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {return document.getElementById(id);}
+            var conArray = ["今天三月的第一天，对于白羊座的人来说，会制定更详细的工作计划，出游计划，注意旅行驾驶安全。...[详细]", "今天金牛们会与朋友敞开心扉会有深入交流，容易有灵性方面的感悟与提升，记录生活的美好时刻...[详细]", "今天的双子们话非常多，交流中会思考深层次的问题，甚至会涉及非现实层面的精神领域。...[详细]"];
+            var starArray = [9, 6, 4, 8, 8, 7, 9];
+            $("sele").onchange = function () {
+                $("icon_yunshi").style.backgroundPosition = "0"+(-50*this.value)+"px"
+                $("content_yunshi").innerHTML = conArray[this.value];
+                $("starYellow").style.width = starArray[this.value]*8 + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="title">星座运势</div>
+        <div class="content">
+            <div class="content_top">
+                <div class="icon" id="icon_yunshi"></div>
+                <div class="right">
+                    <select name="" id="sele">
+                        <option value="0">白羊座(03.21-04.19)</option>
+                        <option value="1">金牛座(04.20-05.20)</option>
+                        <option value="2">双子座(05.21-06.21)</option>
+                        <option value="3">巨蟹座(06.22-07.22)</option>
+                        <option value="4">狮子座(07.23-08.22)</option>
+                        <option value="5">处女座(08.23-09.22)</option>
+                        <option value="6">天秤座(09.23-10.23)</option>
+                        <option value="7">天蝎座(10.24-11.22)</option>
+                    </select>
+                    <div>今日运势：
+                        <span class="yunshi" id="starHui">
+                            <span class="star" id="starYellow"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="content_bottom" id="content_yunshi">
+                今天的你可能会遇到一个小人在领导面前说一些关于你的信息，领导分配率一些不恰当的工作任务给你...[详细]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_封装一个$方法</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="one">111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div class="demo">111</div>
+<div class="demo">111</div>
+<div class="demo">111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+</body>
+</html>
+<script>
+    function $(str) {
+        var prefix = str.charAt(0);
+        var name = str.substr(1);
+        switch (prefix){
+            case "#":
+                return document.getElementById(name);
+                break;
+            case ".":
+                return getClass(name);
+                break;
+            default:
+                return document.getElementsByTagName(str);
+        }
+    }
+    $("#one").style.backgroundColor = "blue";
+    var demos = $(".demo");
+    for (var i = 0; i < demos.length; i++){
+        demos[i].style.backgroundColor = "skyblue";
+    }
+</script>

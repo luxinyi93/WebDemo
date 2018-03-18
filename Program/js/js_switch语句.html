@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_switch语句</title>
+</head>
+<body>
+<input type="text" id="txt"> <button id="btn">点击查询</button>
+<script>
+    var txt = document.getElementById("txt");
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+//        得到输入的值
+        var content = txt.value;
+        switch (content){
+            case "苹果":
+                alert("3元");
+                break;// 结束循环；
+            case "香蕉":
+                alert("1元");
+                break;
+            default:
+                alert("无");
+        }
+    }
+</script>
+</body>
+</html>

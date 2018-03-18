@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_$id函数</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #565656;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+//          封装一个获取id的函数，每次获取id的时候调用该函数
+            function $(id) {
+                return document.getElementById(id);
+            }
+            $("demo1").style.backgroundColor = "#FFAB42";
+            $("demo2").style.backgroundColor = "#9FFF59";
+            $("demo3").style.backgroundColor = "#6BFFF5";
+            $("demo4").style.backgroundColor = "#F9FF33";
+        }
+    </script>
+
+</head>
+<body>
+    <div id="demo1"></div>
+    <div id="demo2"></div>
+    <div id="demo3"></div>
+    <div id="demo4"></div>
+</body>
+</html>

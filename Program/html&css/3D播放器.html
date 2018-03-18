@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D播放器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(images/bg.jpg) no-repeat;
+            background-size: cover;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            /*background-color: #ff603d;*/
+            bottom: 100px;
+            transform-style: preserve-3d;
+            animation: sport 6s linear infinite normal;
+
+        }
+        ul li{
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bg-color: #000;
+
+        }
+        ul li:nth-child(1){
+            transform: rotateY(60deg) translateZ(200px);
+        }
+        ul li:nth-child(2){
+            transform: rotateY(120deg) translateZ(200px);
+        }
+        ul li:nth-child(3){
+            transform: rotateY(180deg) translateZ(200px);
+         }
+        ul li:nth-child(4){
+            transform: rotateY(240deg) translateZ(200px);
+        }
+        ul li:nth-child(5){
+            transform: rotateY(300deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            transform: rotateY(360deg) translateZ(200px);
+        }
+        ul li img{
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 3px solid skyblue;
+        }
+        @keyframes sport {
+            /*
+            1、动画中如果有和默认样式同名的属性，会覆盖默认样式中同名的属性
+            2、在编写动画的时候，固定不变的属性写在前面，改变的属性写在后面。
+
+            */
+            from{
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        ul:hover li img{
+            opacity: 0.5;
+        }
+        ul li:hover img{
+            opacity: 1;
+
+        }
+        .heart{
+            width: 200px;
+            height: 180px;
+            position: absolute;
+            left: 100px;
+            bottom: 100px;
+            animation: heart 8s linear infinite normal;
+        }
+        @keyframes heart {
+            0%{
+                left: 100px;
+                bottom: 100px;
+                opacity: 1;
+            }
+            20%{
+                left: 300px;
+                bottom: 300px;
+                opacity: 0;
+            }
+            40%{
+                left: 500px;
+                bottom: 500px;
+                opacity: 1;
+            }
+            60%{
+                left: 800px;
+                bottom: 300px;
+                opacity: 0;
+            }
+            80%{
+                left: 1200px;
+                bottom: 300px;
+                opacity:1;
+            }
+            100%{
+                left: 600px;
+                bottom: 100px;
+                opacity:0;
+
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+</ul>
+<img src="images/heart.png" class="heart">
+</body>
+</html>

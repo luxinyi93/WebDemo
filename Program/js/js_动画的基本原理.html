@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_动画的基本原理</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: #ffceac;
+            top: 40px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div class="box" id="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var timer = null;
+
+    btn.onclick = function () {
+        timer = setInterval(function () {
+            if (box.offsetLeft > 600){
+                clearInterval(timer);
+            }
+
+            box.style.left = box.offsetLeft + 10 + "px";
+        },20);
+
+    }
+
+</script>

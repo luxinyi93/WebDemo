@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_无缝滚动效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        img{
+            /*向上对齐，取消图片间的巨离*/
+            vertical-align: top;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .box ul{
+            width: 400%;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box ul li{
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+            <ul id="scroll">
+                <li><img src="images/aa.jpg" alt=""></li>
+                <li><img src="images/bb.jpg" alt=""></li>
+                <li><img src="images/cc.jpg" alt=""></li>
+                <li><img src="images/dd.jpg" alt=""></li>
+                <li><img src="images/aa.jpg" alt=""></li>
+                <li><img src="images/bb.jpg" alt=""></li>
+            </ul>
+    </div>
+</body>
+</html>
+<script>
+
+</script>

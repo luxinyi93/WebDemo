@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_tb栏切换效果</title>
+    <style>
+        .box{
+            width: 400px;
+            margin: 100px auto;
+        }
+        .bottom div{
+            width: 100%;
+            height: 200px;
+            background-color: #f9ff33;
+            display: none;
+        }
+        .select{
+            background-color: #ffab42;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btns = document.getElementsByTagName("button");
+            var divs = document.getElementById("content").getElementsByTagName("div");
+            var len = btns.length;
+            for(var i = 0; i < len; i++){
+                btns[i].index = i;
+                btns[i].onclick = function () {
+                    for(var j = 0; j < len; j++){
+                        btns[j].className = "";
+                        divs[j].style.display = "none";
+                    }
+                    this.className = "select";
+                    divs[this.index].style.display = "block";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="top">
+            <button>1号按钮</button>
+            <button>2号按钮</button>
+            <button>3号按钮</button>
+            <button>4号按钮</button>
+            <button>5号按钮</button>
+        </div>
+        <div class="bottom" id="content">
+            <div style="display: block;">1号盒子显示。。。</div>
+            <div>2号盒子显示。。。</div>
+            <div>3号盒子显示。。。</div>
+            <div>4号盒子显示。。。</div>
+            <div>5号盒子显示。。。</div>
+        </div>
+
+    </div>
+</body>
+</html>

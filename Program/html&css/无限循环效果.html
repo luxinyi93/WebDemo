@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限循环效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 100px auto;
+            width: 1300px;
+            height: 650px;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        ul{
+            width: 4000px;
+            height: 650px;
+            background-color: black;
+            /*直接让ul滚动就可以实现li的滚动效果*/
+            animation: move 10s linear 0s infinite normal;
+        }
+        ul li{
+            width: 650px;
+            height: 650px;
+            list-style: none;
+            float: left;
+        }
+        @keyframes move {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left:-2600px;
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        /*顺序不能颠倒，因为ul是父元素，要先设置，否则会覆盖子元素的效果*/
+        ul:hover li{
+            opacity: 0.5;
+        }
+        ul li:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="images/yun1.jpg"></li>
+            <li><img src="images/yun2.jpg"></li>
+            <li><img src="images/yun3.jpg"></li>
+            <li><img src="images/yun4.jpg"></li>
+            <li><img src="images/yun1.jpg"></li>
+            <li><img src="images/yun2.jpg"></li>
+        </ul>
+    </div>
+</body>
+</html>

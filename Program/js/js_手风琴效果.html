@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_手风琴效果</title>
+    <style>
+        *{margin: 0;  padding:0;}
+        ul{list-style: none;}
+        .box{
+            width: 1000px;
+            height: 400px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        .box ul{
+            width: 1200px;
+            height: 100%;
+        }
+        ul>li{
+            float: left;
+            width: 200px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+    var box = $("box");
+    var ul = box.children[0];
+    var ulLis = ul.children;
+
+    for (var i = 0, len = ulLis.length; i < len; i++){
+        ulLis[i].style.backgroundImage = "url(images/"+ (i+1) +"s.jpg)";
+
+        ulLis[i].onmouseover = function () {
+            for (var j = 0, len = ulLis.length; j < len; j++){
+                slowAnimation(ulLis[j], {width: 100});
+            }
+            slowAnimation(this, {width: 800});
+        }
+        ulLis[i].onmouseout = function () {
+            for (var i = 0, len = ulLis.length; i < len; i++){
+                slowAnimation(ulLis[i], {width: 200});
+            }
+        }
+    }
+</script>

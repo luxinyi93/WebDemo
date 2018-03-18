@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过度模块</title>
+    <STYLE>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: #ff131d;
+            /*告诉系统那个元素需要过度*/
+            transition-property: width;
+            /*过渡效果持续的时间*/
+            transition-duration: 5s;
+            /*延迟几秒才开始过度*/
+            transition-delay: 1s;
+        }
+        /*hover除了可以用在a标签中，其他任何标签都可以用*/
+        div:hover{
+            width: 300px;
+            background-color: #0806ff;
+
+        }
+        ul{
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        ul li{
+            list-style: none;
+            width: 80px;
+            height: 80px;
+            background-color: #acffff;
+            margin: 10px;
+            /*宽度和左边距都需要过渡效果，用“，”隔开*/
+            transition: margin-left 5s linear 0s,width 5s linear 0s;
+            /*所有具有过渡效果的元素，都发生变化，时间都是5s*/
+            /*transition: all 5s;*/
+            transition-property: margin-left;
+            transition-duration: 5s;
+        }
+        ul:hover li{
+            margin-left: 600px;
+
+        }
+        ul li:nth-child(1){
+            /*运动速度是匀速的*/
+            transition-timing-function: linear;
+        }
+        ul li:nth-child(2){
+            transition-timing-function: ease;
+        }
+        ul li:nth-child(3){
+            transition-timing-function: ease-in;
+        }
+        ul li:nth-child(4){
+            transition-timing-function: ease-out;
+        }
+        ul li:nth-child(5){
+            transition-timing-function: ease-in-out;
+        }
+    </STYLE>
+</head>
+<body>
+<div></div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+</html>

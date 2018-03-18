@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素选择器</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #b8c96a;
+        }
+        div::before{
+            content: "爱你";
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            display: block;
+        }
+        div::after{
+            content: "爱你";
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            display: block;
+            visibility: hidden;//隐藏
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    我是文字
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_阻止冒泡</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    document.onclick = function () {
+        alert("点击了document");
+    }
+    btn.onclick = function (event) {
+        var event = event || window.event;
+//        以下是为了阻止冒泡现象
+        if (event && event.stopPropagation){
+//            w3c标准的
+            event.stopPropagation();
+        }else {
+//            ie678标准
+            event.cancleBubble = true;
+        }
+        alert("点击了按钮");
+    }
+</script>

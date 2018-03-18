@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_隔行变色</title>
+    <style>
+        .box{
+            width: 300px;
+        }
+        ul li{
+            line-height: 30px;
+            list-style-type: none;
+        }
+        .li_hover{
+            background-color: #ccc;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var lis = document.getElementsByTagName("li");
+            for(var i = 0, len = lis.length; i < len; i++){
+//                实现隔行变色的效果，偶数行或者是奇数行有背景色。
+//                if(i%2 == 0){
+//                    lis[i].style.backgroundColor = "#565656"
+//                }
+                lis[i].onmouseover = function () {
+                    this.className = "li_hover";
+                }
+                lis[i].onmouseout = function () {
+                    this.className = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>11111111111111</li>
+            <li>22222222222222</li>
+            <li>33333333333333</li>
+            <li>44444444444444</li>
+            <li>55555555555555</li>
+            <li>66666666666666</li>
+            <li>77777777777777</li>
+            <li>88888888888888</li>
+            <li>99999999999999</li>
+        </ul>
+    </div>
+
+</body>
+</html>

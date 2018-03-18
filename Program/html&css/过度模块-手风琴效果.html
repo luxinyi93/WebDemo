@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过度模块-手风琴效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 960px;
+            height: 280px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        ul li{
+            box-sizing: border-box;
+            width: 160px;
+            height: 280px;
+            float: left;
+            list-style: none;
+            /*设置过渡效果*/
+            transition: width 0.5s;
+        }
+        /*首先找到整个ul，当鼠标放在ul范围内的时候，每个li都变窄*/
+        ul:hover li{
+            width: 100px;
+        }
+        /*精确到某个li，使宽度变大*/
+        ul li:hover{
+            width: 460px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+    <li><img src="images/author.jpg"></li>
+</ul>
+</body>
+</html>

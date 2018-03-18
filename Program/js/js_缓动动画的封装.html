@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_缓动动画的封装</title>
+    <style>
+        .box{
+            /*不能限制高度*/
+            width: 100px;
+            height: 100px;
+            background-color: #ffceac;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+  <button id="btn">点击</button>
+    <div class="box" id="box"></div>
+</body>
+</html>
+<script src="js_myNav.js" type="text/javascript"></script>
+<script>
+    var btn = $("btn");
+    var box = $("box");
+
+    btn.onclick = function () {
+        moveAnimation(box, {left: 200, top: 300, opacity: 50})
+    }
+
+
+//    适用于传递属性进来，可以是一个，也可以是多个
+    function moveAnimation(obj, json, fn) {
+        clearInterval(obj.timer);
+        var flag = true;
+        obj.timer = setInterval(function () {
+            for (var key in json){
+                // 得到目前某个属性的值
+                var current = 0;
+                if (key == "opacity"){
+                    current = parseInt(getStyle(obj, key) * 100);
+                }else {
+                    current = parseInt(getStyle(obj, key));
+                }
+
+                // 得到 步长
+                var step = (json[key] - current) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                // 赋值给需要移动的对象
+                //判断透明度
+                if (key == "opacity"){
+                    //判断该浏览器是否支持opacity
+                    if ("opacity" in obj.style){
+                        obj.style.opacity = (current + step) / 100;
+                    }else {
+                        obj.style.filter = "alpha(opacity = "+json[key]*100+")"
+                    }
+                }else if (key == "zIndex"){
+                    obj.style.zIndex = json[key];
+                }else {
+                    obj.style[key] = current + step + "px";
+                }
+
+                // 判断当前是否有属性还没有运动到终点
+                if (current != json[key]){
+                    flag = false;
+                }
+            }
+            if (flag){
+                clearInterval(obj.timer);
+
+                //当计时器结束以后，才开始执行回调函数
+                // 执行回调函数
+                if (fn){
+                    fn();
+                }
+            }
+        }, 20);
+    }
+</script>

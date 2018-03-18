@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_控制结构和样式</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #f9ff33;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="demo"></div>
+    <button id="btn1">改变宽度</button>
+    <button id="btn2">改变高度</button>
+
+    <script>
+        var demo = document.getElementById("demo");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+/*事件三要素格式
+* 事件源.事件 = function(){}*/
+        btn1.onclick = function () {
+            demo.style.width = "400px";
+        }
+        btn2.onclick = function () {
+            demo.style.height = "400px";
+        }
+    </script>
+</body>
+</html>

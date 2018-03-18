@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动的方式</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            background-color: #0cc7cb;
+            /*
+            1、让里面的盒子设置margin_top之后，外面的盒子不被顶下来
+            2、可以将超出的部分裁减掉；
+            3、清除浮动，可以撑起第一个盒子*/
+            overflow: hidden;
+        }
+        .box2{
+            background-color: #fefc06;
+            /*可以清除浮动*/
+            /*clear: both;*/
+        }
+        .box1 p{
+            width: 100px;
+            background-color: #189211;
+        }
+        .box2 p{
+            width: 100px;
+            background-color: #920c8b;
+        }
+        p{
+            float: left;
+        }
+        /*!*外墙法清除浮动 外墙法不能撑起第一个盒子的高度；内墙法可以撑起第一个盒子的高度*!*/
+        /*.wall{*/
+            /*clear: both;*/
+            /*height: 10px;*/
+            /*background: #000;*/
+           /**/
+        /*}*/
+        /*.box1::after{*/
+            /*content: "";*/
+            /*height: 0;*/
+            /*visibility: hidden;*/
+            /*clear: both;*/
+            /*display: block;*/
+        /*}*/
+        /*.box1{*/
+            /*!*兼容IE6*!*/
+            /**zoom: 1;*/
+        /*}*/
+    </style>
+
+</head>
+<body>
+    <div class="box1">
+        <p>我是文字</p>
+        <p>我是文字</p>
+        <p>我是文字</p>
+        <!--<div class="wall"></div>-->
+    </div>
+<!--外墙法清除浮动-->
+    <!--<div class="wall"></div>-->
+
+    <div class="box2">
+        <p>我是文字</p>
+        <p>我是文字</p>
+        <p>我是文字</p>
+    </div>
+
+</body>
+</html>

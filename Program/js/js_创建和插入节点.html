@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布效果</title>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        .box{
+            width: 600px;
+            /*设置高度自动，包裹内容*/
+            height: auto;
+            border: 1px solid #333;
+            margin: 100px auto;
+            padding: 20px 0;
+        }
+        textarea{
+            width: 400px;
+            /*防止用户拖动*/
+            resize: none;
+        }
+        .box li{
+            width: 400px;
+            line-height: 30px;
+            border-bottom:1px dashed #ccc;
+            margin-left: 40px;
+        }
+        .box li a{
+            float: right;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName("button")[0];
+            var text = document.getElementsByTagName("textarea")[0];
+            var ul = document.createElement("ul");
+            btn.parentNode.appendChild(ul);
+            btn.onclick = function () {
+//                判断内容是否为空，如果是空的话就不向下执行了
+                if (text.value == ""){
+                    alert("内容不能为空");
+                    return false;
+                }
+//                表单中部位空，才创建li
+                var newLi = document.createElement("li");
+//                在新创建的li中，添加文本（表单中的value值），添加删除的标签
+                newLi.innerHTML = text.value + "<a href = 'javascript:;'>删除</a>";
+                var lis = ul.children;
+//                新添加的文本要显示在最上面，所以要判断该条记录是否是第一次添加
+                if (lis.length == 0){
+//                    若果是第一次添加，就直接用appendChild
+                    ul.appendChild(newLi);
+                }else {
+//                    如果不是第一次添加，就以第一条记录为参照，插在它的前面
+                    ul.insertBefore(newLi, lis[0]);
+                }
+                text.value = "";
+
+                var as = document.getElementsByTagName("a");
+                for(var i = 0, len = as.length; i < len; i++){
+                    as[i].onclick = function () {
+//                        点击删除的时候，实际删除的是删除标签所在的父标签，所以要用this.parentNode
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="weibo">
+        微博发布：<textarea name="" id="" cols="30" rows="10"></textarea> <button>发布</button>
+    </div>
+</body>
+</html>
