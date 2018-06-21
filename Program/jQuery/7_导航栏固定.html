@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_导航栏固定</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: top;
+        }
+        .bottom{
+            margin: 10px auto 0 auto;
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+        <div class="top" id="top">
+            <img src="images/7_top.png" alt="">
+        </div>
+        <div class="nav" id="nav">
+            <img src="images/7_nav.png" alt="">
+        </div>
+        <div class="bottom">
+            <img src="images/7_main.png" alt="">
+        </div>
+
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(function () {
+        var docScrollTop = $("#top").height();
+
+        $(window).scroll(function () {
+            var toScrollTop = $(document).scrollTop();
+
+            if (toScrollTop >= docScrollTop){
+                $("#nav").css({
+                    "position" : "fixed",
+                    "top" : 0
+                });
+                // 导航栏变成固定定位之后就不再占用位置，下面的bottom会瞬间跳转上去，所以要添加margin-top
+                $(".bottom").css("margin-top", $(".nav").height());
+
+            }else {
+                $("#nav").css({
+                    "position" : "static"
+                });
+
+                $(".bottom").css("margin-top", 0);
+            }
+        });
+    })
+</script>

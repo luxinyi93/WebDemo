@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        .parent{
+            background-color: #38aaff;
+            /*使用flex布局,让不定宽高的盒子居中显示*/
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-content: center;*/
+
+            /*使用table-cell的方法*/
+            display: table;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .child{
+            /*使用table-cell的方法*/
+            display: table-cell;
+            background-color: #ffab42;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            fhdjklfhdjsfhjsfhjakhfjdkshfjahfjasdhjdshfjdhfjdhdjfhdjfhdjsfhdjsfhjskfhjdsahfjshfjdshfj
+        </div>
+    </div>
+
+</body>
+</html>

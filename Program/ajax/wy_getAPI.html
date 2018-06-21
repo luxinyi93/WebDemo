@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wy_getAPI</title>
+    <style>
+        .users{
+            background-color: #cccccc;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .users ul{
+            display: inline-block;
+            list-style: none;
+        }
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">请求API接口</button>
+    <div id="users">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "https://api.github.com/users", true);
+        xhr.onreadystatechange = function () {
+            var usersInfo = JSON.parse(this.responseText);
+            var input = "";
+            for (var i in usersInfo){
+                input +=
+                    "<div class='users'>" +
+                        "<img src= "+ usersInfo[i].avatar_url+ ">"+
+                        "<ul>" +
+                            "<li> ID: "+ usersInfo[i].id + "</li>"+
+                            "<li> login: "+ usersInfo[i].login + "</li>"+
+                        "</ul>"+
+                    "</div>";
+            }
+            document.getElementById("users").innerHTML = input;
+
+        }
+        xhr.send();
+    }
+</script>

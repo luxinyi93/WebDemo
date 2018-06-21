@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parent{
+            background-color: #38aaff;
+            height: 100px;
+            /*设置浮动之后,会出现高度塌陷的问题,解决方法:
+            1. 给父容器设置固定高度,比较局限
+            2. 设置overflow: hidden;但是超出的部分就不能显示了
+            3. 父级div定义伪类:after和zoom*/
+            /*overflow: hidden;*/
+        }
+        .son1{
+            width: 100px;
+            height: 100px;
+            background-color: #ffab42;
+            float: left;
+        }
+        .son2{
+            width: 100px;
+            height: 100px;
+            background-color: #9fff59;
+            float: right;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #00488e;
+        }
+        /*img{*/
+            /*float: left;*/
+        /*}*/
+        .innerbox{
+            border: 1px solid #ff6981;
+            float: left;
+        }
+        .fl{
+            width: 100px;
+            border: 1px solid #38aaff;
+            float: left;
+        }
+        .nfl{
+            width: 100px;
+            border: 1px solid #ffab42;
+        }
+        .test{
+            width: 178px;
+            height: 125px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!--浮动元素会从普通文档流中脱离
+    但浮动元素影响的不仅是自己，它会影响周围的元素对齐进行环绕。
+    无论这个元素是会计元素还是行内元素,只要设置了浮动,就可以设置宽高-->
+    <!--<div class="parent clearfix">-->
+        <!--<div class="son1"></div>-->
+        <!--<div class="son2"></div>-->
+    <!--</div>-->
+
+    <!--<br><br>-->
+
+    <!--<div class="box">-->
+        <!--<img src="img/tengxun.JPG" alt="">-->
+        <!--<p>与该浮动元素同级的非浮动元素，如果是块级元素，会移动到该元素下方，而块级元素内部的行内元素会环绕浮动元素；而如果是内联元素则会环绕该浮动元素。</p>-->
+        <!--<div class="innerbox">-->
+            <!--<p>与该浮动元素同级的非浮动元素，如果是块级元素，会移动到该元素下方，而块级元素内部的行内元素会环绕浮动元素；而如果是内联元素则会环绕该浮动元素。</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<br><br>-->
+
+    <!--<div class="fl">-->
+        <!--而浮动元素对于其父元素之外的元素，如果是非浮动元素，则相当于忽视该浮动元素，如果是浮动元素，则相当于同级的浮动元素。-->
+    <!--</div>-->
+    <!--<p class="nfl">-->
+        <!--我是没有浮动的元素-->
+    <!--</p>-->
+
+    <div class="test">
+        <img src="img/tengxun.JPG" alt="">
+    </div>
+</body>
+</html>

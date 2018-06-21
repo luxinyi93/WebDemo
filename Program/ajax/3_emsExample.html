@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emsExample</title>
+    <style>
+        .box{
+            width: 260px;
+            height: 500px;
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            padding: 20px 20px 0 20px;
+            background-color: #ffceac;
+        }
+        .parent{
+            overflow: hidden;
+        }
+        .parent .content{
+            height: 1000px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <input type="text" id="text">
+        <input type="button" value="查询" id="btn">
+        <div class="parent">
+            <div class="content" id="content">
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="ajaxMethod.js"></script>
+<script>
+    var search = document.getElementById("btn");
+    search.onclick = function () {
+        var xhr = getHttpObject();
+        var code = document.getElementById("text").value;
+        var url = 'php/03ems.php?code=' + code;
+
+        xhr.open('get', url, true);
+
+        xhr.send(null);
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200){
+                var data = JSON.parse(this.responseText);
+                if (data.status == 0){
+                    var list = data.data.info.context;
+                    var tag = '';
+                    for (var i = 0; i < list.length; i++){
+                        var item = list[i];
+                        var desc = item.desc;
+                        var t = new Date();
+                        t.setTime(item.time + '000');
+                        var str = t.getFullYear()+'年'+(t.getMonth()+1)+'月'+t.getDay()+'日'+(t.getHours()>12?' 下午':' 上午')+t.getHours()%12+':'+t.getMinutes()+':'+t.getSeconds();
+                        // 把数据链接成一段字符串
+                        tag += '<li><div>' + str + '</div><div>' + desc + '</div></li>';
+                    }
+                    var ul = document.createElement("ul");
+                    ul.innerHTML = tag;
+                    document.getElementById("content").appendChild(ul);
+
+                }else {
+                    var str = data.msg;
+                    document.getElementById("content").innerHTML = str;
+                }
+            }
+        }
+    }
+</script>

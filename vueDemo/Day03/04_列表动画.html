@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>列表动画</title>
+    <script src="../libs/vue/vue.js"></script>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            border: 1px dashed #ccc;
+            line-height: 30px;
+            padding-left: 5px;
+            margin: 5px;
+            font-size: 14px;
+            width: 100%;
+        }
+        li:hover{
+            background-color: pink;
+        }
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 1s ease;
+        }
+        .v-move{
+            transition: all 1s ease;
+        }
+        .v-leave-active{  
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+	<div id="app">
+        <label>
+            id:
+            <input type="text" v-model="id">
+        </label>
+
+        <label>
+            name:
+            <input type="text" v-model="name">
+        </label>
+
+        <input type="button" value="添加" @click="add">
+
+            <!-- 如果列表是通过v-for渲染出来的, 要添加动画的时候, 需要用transition-group包裹 且每一个元素都要设置:key属性 -->
+            <!-- 给transition-group添加appear属性 可以实现入场的时候缓慢进入的效果 -->
+            <!-- 给transition-group添加 tag 属性 设置值为 ul, 那么在渲染的时候就自动生成ul包裹; 如果不添加默认是span包裹, 不符合w3c标准 -->
+            <transition-group appear tag="ul">
+                <li v-for="(item, index) in list" :key="item.id" @click="del(index)">
+                    {{ item.id }} ==> {{ item.name }}
+                </li>
+            </transition-group>
+
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+                id: "",
+                name: "",
+				list: [
+                    {id: 1, name: "zhangsan"},
+                    {id: 2, name: "lisi"},
+                    {id: 3, name: "wangwu"},
+                    {id: 4, name: "zhaoliu"}
+                ]
+			},
+			methods: {
+                add(){
+                    this.list.push({ id: this.id, name: this.name });
+                },
+                del(index){
+                    // 根据index来删除相应的item
+                    this.list.splice(index, 1);
+                }
+            }
+		})
+	</script>
+</body>
+</html>

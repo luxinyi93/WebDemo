@@ -1,0 +1,26 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+ul, ol{
+    list-style: none;
+}
+/*img{*/
+    /*vertical-align: top;*/
+/*}*/
+a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+form{
+    margin: 0;
+    padding: 0;
+}
+input{
+    /*去掉边框样式*/
+    border: 0;
+    /*去掉聚焦时边框样式*/
+    outline: none;
+    vertical-align: middle;
+}

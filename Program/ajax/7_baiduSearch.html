@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_baiduSearch</title>
+    <style>
+        .baidu{
+            align-content: center;
+            padding: 10px 0 10px 150px;
+        }
+        .info{
+            background-color: #e9e9e9;
+            width: 160px;
+            border: 1px solid #000;
+            padding-left: 5px;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="baidu" id="baidu">
+        <input type="text" id="keyword">
+        <input type="button" value="百度一下" id="btn">
+        <div class="info" id="list">
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    var keyword = document.getElementById("keyword");
+    keyword.onkeyup = function (e) {
+        var content = keyword.value;
+        var url = "dfd";
+        querySUG(content);
+    }
+
+    function querySUG() {
+        document.getElementById("list").innerHTML = "";
+        $.ajax({
+            type: "get",
+            async: true,
+            dataType: "get",
+            url: url,
+            jsonp: "cb",
+            jsonCallBack: "callback",
+            success: function (data) {
+
+            },error: function () {
+
+            }
+        });
+
+    }
+
+</script>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_下拉菜单</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style: none;}
+        a{
+            text-decoration: none;
+            display: block;
+        }
+        .warp{
+            width: 340px;
+            height: 30px;
+            margin: 100px auto;
+            padding-left: 10px;
+            background: url("images/bg.jpg") no-repeat;
+        }
+        .warp li{
+            float: left;
+            width: 100px;
+            height: 100%;
+            margin-right: 10px;
+            position: relative;
+        }
+        .warp a{
+            color: black;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 30px;
+            background: url("images/libg.jpg") no-repeat;
+        }
+        .warp li ul{
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <ul class="item">
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">一级菜单</a>
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+
+    $(document).ready(function () {
+        // 方法一：
+//        $(".warp li").mouseenter(function () {
+//            $(this).children("ul").show();
+//        });
+//
+//        $(".warp li").mouseleave(function () {
+//            $(this).children("ul").hide();
+//        });
+
+        //方法二：
+//        $(".warp li").hover(function () {
+//            $(this).children("ul").show();
+//        }, function () {
+//            $(this).children("ul").hide();
+//        });
+
+        //方法三：
+//        $(".warp li").hover(function () {
+//            var liItem = $(this).children("ul");
+//            var displayAttr = liItem.css("display");
+//            if (displayAttr === "block"){
+//                liItem.hide();
+//            }else {
+//                liItem.show();
+//            }
+//        });
+
+        //方法四：
+        $(".warp li").hover(function () {
+           $(this).children("ul").slideToggle();
+        });
+    })
+</script>

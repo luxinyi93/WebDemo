@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_原生ajax</title>
+</head>
+<body>
+    <div id="new">
+
+    </div>
+</body>
+</html>
+<script>
+
+        //1、创建ajax对象
+        var xhr = null;
+        if (window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else {
+            // 适配ie浏览器
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 2、初始化ajax对象
+        // 参数2：服务器上将要被读取的文件的地址
+        xhr.open("get", "text.txt", true);
+
+        // 4、做完这件事之后需要进行的工作
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4){
+                var param = document.createElement("p");
+                var text = document.createTextNode(xhr.responseText);
+                param.appendChild(text);
+                document.getElementById("new").appendChild(param);
+            }
+        }
+
+        // 3、开始这项工作
+        xhr.send(null);
+
+</script>

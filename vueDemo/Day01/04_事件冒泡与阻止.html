@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="../libs/vue/vue.js"></script>
+	<style>
+		.inner{
+			height: 150px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 一般情况下,点击事件会产生冒泡效果;自内向外冒泡
+			在click后面添加stop修饰符, 可以解决点击事件的冒泡现象
+			给父元素的点击事件添加.capture修饰符,实现捕获触发事件的机制
+			添加.self修饰符,表示只有点击当前元素才触发点击事件 -->
+		<div class="inner" @click.capture="divClick">
+			<input type="button" value="点击(阻止冒泡)" @click.stop="btnClick">
+			<input type="button" value="点击(捕获机制)" @click="btnClick">
+		</div>
+
+		<br>
+		<!-- .prevent修饰符可以阻止默认事件的发生, 例如:a标签的跳转功能 -->
+		<a href="http://www.baidu.com" @click.prevent="linkClick">百度一下</a>
+		
+	</div>
+
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				msg: "我是跑马灯效果~~"
+			},
+			methods: {
+				divClick(){
+					console.log("div CLick");
+				},
+				btnClick(){
+					console.log("btn click");
+				},
+				linkClick(){
+					console.log("link click");
+				}
+			}
+		});
+	</script>	
+</body>
+</html>

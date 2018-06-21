@@ -1,0 +1,33 @@
+@charset "utf-8";
+// 小三角
+.triangle(@_, @width, @color){ //此处的代码无论什么情况都会被调用
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+.triangle(top, @width, @color){
+	border-width: @width;
+	border-color: transparent transparent @color transparent;
+	border-style: dashed dashed solide dashed;
+}
+.triangle(bottom, @width, @color){
+	border-width: @width;
+	border-color: @color transparent transparent transparent;
+	border-style: solide dashed dashed dashed;
+}
+.triangle(left, @width, @color){
+	border-width: @width;
+	border-color: transparent @color transparent transparent;
+	border-style: dashed dashed solide dashed;
+}
+.triangle(right, @width, @color){
+	border-width: @width;
+	border-color: transparent transparent transparent @color;
+	border-style: dashed dashed dashed solide;
+}
+
+// 调用的时候
+.sanjiao{
+	.triangle(right, 10px, #ccc);
+}
+

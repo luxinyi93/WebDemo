@@ -1,0 +1,348 @@
+
+.index-nav-bar{
+	width: 1000px;
+	margin: 25px auto 25px;
+}
+/*.index-nav-bar > h1 > a{*/
+	/*background: url("../img/logo_db.png") no-repeat;*/
+/*}*/
+.index-nav-bar > h1{
+	vertical-align: middle;
+	display: inline-block;
+}
+.index-nav-bar > .index-search{
+	position: relative;
+	display: inline-block;
+	width: 270px;
+	height: 30px;
+	border: 1px solid #c3c3c3;
+	vertical-align: middle;
+	margin-left: 30px;
+}
+.index-nav-bar .form-text{
+	display: block;
+	height: 30px;
+}
+.index-nav-bar .form-text > input{
+	width: 270px;
+	height: 30px;
+	text-indent: 1em;
+}
+.index-nav-bar .form-btn{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 30px;
+	height: 30px;
+	background: url("../img/bn_srh_1.png") no-repeat center center;
+	color: #ccc;
+}
+.index-nav-bar .form-btn > input{
+	width: 30px;
+	height: 30px;
+	background: transparent;
+	cursor: pointer;
+	color: transparent;
+}
+.index-nav-bar .index-nav-links{
+	float: right;
+	margin-left: 30px;
+}
+.index-nav-bar ul{
+	width: 500px;
+	height: 20px;
+}
+.index-nav-bar ul > li{
+	float: left;
+	margin-top: 8px;
+}
+.index-nav-bar ul > li > a{
+	display: inline-block;
+	width: 60px;
+	height: 20px;
+	vertical-align: middle;
+	color: transparent;
+	background: url("../img/anony_nav_logo.png") no-repeat 0 0;
+}
+/*登录部分开始*/
+.index-login{
+	background: #edf4ed url("../img/doubanapp5_bg.png") no-repeat 100px 0;
+	border-top: 1px solid #edf4ed;
+	position: relative;
+}
+.index-login > .index-login-content{
+	position: relative;
+	overflow: visible;
+	height: 178px;
+}
+.index-login > .index-login-content:before{
+	content: "";
+	position: absolute;
+	width: 380px;
+	top: 0;
+	bottom: 0;
+	left: 180px;
+	right: 0;
+	background: url("../img/doubanapp5.png") no-repeat 0 -150px;
+}
+.index-login .index-login-form{
+	width: 270px;
+	margin-left: 900px;
+	padding-top: 30px;
+}
+.index-login > .index-login-content > .index-login-form > .form-box > input{
+	width: 267px;
+	height: 30px;
+	border: 1px solid #dbe5db;
+	margin-bottom: 5px;
+	text-indent: 1em;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn{
+	text-align: center;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn input,
+.index-login > .index-login-content > .index-login-form > .form-btn a{
+	width: 130px;
+	border: 1px solid #30a080;
+	border-radius: 3px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn input{
+	background-color: #30a080;
+	height: 28px;
+	color: #fff;
+	float: left;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn input:hover{
+	background-color: #2a8c70;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn a{
+	display: inline-block;
+	color: #30a080;
+	float: right;
+	height: 26px;
+	line-height: 26px;
+}
+.index-login > .index-login-content > .index-login-form > .form-btn a:hover{
+	border: 1px solid #2a8c70;
+	color: #2a8c70;
+}
+.index-login > .index-login-content > .index-login-form > .rem-pass > label{
+	padding-top: 8px;
+	font-size: 12px;
+	vertical-align: middle;
+	color: #666;
+}
+.index-login > .index-login-content > .index-login-form > .rem-pass > ul{
+	float: right;
+}
+.index-login > .index-login-content > .index-login-form > .rem-pass li{
+	padding-top: 3px;
+	float: left;
+	padding-right: 8px;
+}
+.index-login > .douban-app{
+	position: absolute;
+	margin: auto 0 auto 450px;
+	top: 50px;
+	left: 170px;	
+}
+.index-login > .douban-app > p{
+	font-size: 25px;
+	color: #111;
+	line-height: 24px;
+}
+.index-login > .douban-app > p:after{
+	content: " ";
+	display: inline-block;
+	width: 100%;
+}
+.index-login > .douban-app a{
+	display: inline-block;
+	font-size: 12px;
+	width: 115px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #00b51d;
+	color: #fff;
+	float: left;
+	margin-right: 5px;
+}
+.index-login > .douban-app > .dpuban-app-btn > .douban-app-btn-green{
+	position: relative;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	border: 1px solid #00b51d;
+	border-radius: 3px;
+	float: right;
+}
+.index-login > .douban-app > .dpuban-app-btn > .douban-app-btn-green > .daouban-app-saoma{
+	display: none;
+	width: 200px;
+	height: 225px;
+	background-color: #fff;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 20px;
+}
+.index-login > .douban-app > .dpuban-app-btn > .douban-app-btn-green > .daouban-app-saoma img{
+	width: 160px;
+	height: 160px;
+}
+.index-login > .douban-app > .dpuban-app-btn > .douban-app-btn-green > .daouban-app-saoma p{
+	font-size: 14px;
+}
+/*热门电影部分*/
+.index-movie{
+	padding: 30px 0 20px 0;
+	background-color: #f7f7f7;
+}
+.index-movie > .content{
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+	/*background-color: #ffc7c7;*/
+}
+/*热门电影左侧的nav*/
+.index-movie > .content .movie-nav{
+	color: #27a;
+	padding-right: 50px;
+	float: left;
+}
+.index-movie > .content .movie-nav h2 > a{
+	font-size: 24px;
+	color: #27a;
+}
+.index-movie > .content .movie-nav li a{
+	font-size: 16px;
+	color: #27a;
+}
+.index-movie > .content .movie-nav ul{
+	margin-top: 10px;
+}
+.index-movie > .content .movie-nav ul li{
+	font-size: 16px;
+	margin-top: 10px;
+}
+/*nav结束*/
+/*中间的电影部分开始*/
+.index-movie > .content > .hot-movie{
+	float: left;
+	width:525px;
+	padding-right: 50px;
+} 
+.index-movie > .content > .hot-movie ul{
+	margin-top: 15px;
+}
+.index-movie > .content > .hot-movie ul > li{
+	text-align: center;
+	float: left;
+}
+.index-movie > .content > .hot-movie li a{
+	display: block;
+}
+
+#hot_movie .items {
+	width: 100px;
+}
+
+#hot_movie .items .movie-shopping{
+	display: inline-block;
+	width: 68px;
+	height: 23px;
+	line-height: 23px;
+	/*text-align: center;*/
+	color: #fff;
+	margin-top: 10px;
+	background-color: #1c8bd0;
+	font-size: 12px;
+	border-radius: 3px;
+	margin-bottom: 40px;
+}
+#hot_movie .items .movie-title{
+	display: inline-block;
+	width: 95px;
+	color: #111;
+	padding: 12px 0 10px 0;
+	font-size: 12px;
+	/*禁止文字折行*/
+	white-space:nowrap;
+	overflow:hidden; 
+	/*超出部分不显示
+	clip：不显示省略标记（...），而是简单的裁切。
+	ellipsis：当对象内文本溢出时显示省略标记（...）*/
+	text-overflow:ellipsis
+}
+.items .item-cover{
+	width: 100px;
+	height: 145px;
+}
+.h2-title{
+	display: block;
+	color: #007722;
+	font-size: 15px;
+	margin-left: 5px;
+}
+.h2-title > a{
+	color: #27a;
+}
+#hot_movie .items > .stars{
+	width: 100px;
+	height: 12px;
+	margin-bottom: 9px;
+	/*text-align: center;*/
+}
+#hot_movie .items > .stars > .item-stars{
+	display: inline-block;
+	width: 55px;
+	height: 11px;
+	background: url("../img/ic_rating_s.png") no-repeat 0 0;
+}
+#hot_movie .items > .stars > .item-result{
+	color: #e09331;
+	font-size: 12px;
+}
+
+/*右侧列表部分*/
+.index-movie .nav-list{
+	width: 270px;
+	/*background-color: #9ff6b8;*/
+	float: left;
+}
+.index-movie .nav-list .movie-ul-list{
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 38px;
+}
+.index-movie .nav-list .hot-ul-list > li{
+	float: left;
+	width: 260px;
+	padding: 0 5px;
+	border-bottom: 1px solid #eaeaea;
+}
+.top10-span{
+	font-size: 14px;
+	color: #111;
+	padding-right: 3px;
+}
+.top10-a{
+	color: #2277aa;
+	font-size: 12px;
+}
+.index-movie .nav-list li{
+	float: left;
+	width: 48px;
+	height: 22px;
+	line-height: 22px;
+	margin-top: 10px;
+}
+.index-movie .nav-list li a{
+	color: #2277aa;
+	font-size: 12px;
+}

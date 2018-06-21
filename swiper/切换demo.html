@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换</title>
+    <link rel="stylesheet" href="libs/swiper/swiper-4.2.6.min.css">
+    <style>
+        .swiper-slide{
+            width: 200px;
+            height: 200px;
+            font-size: 40px;
+            text-align: center;
+        }
+        .swiper-slide:nth-of-type(2n){
+            background-color: #ffab42;
+        }
+
+    </style>
+</head>
+<body>
+    <!--滑动效果-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">slide1</div>
+            <div class="swiper-slide">slide2</div>
+            <div class="swiper-slide">slide3</div>
+            <div class="swiper-slide">slide4</div>
+            <div class="swiper-slide">slide5</div>
+            <div class="swiper-slide">slide6</div>
+            <div class="swiper-slide">slide7</div>
+            <div class="swiper-slide">slide8</div>
+            <div class="swiper-slide">slide9</div>
+        </div>
+    </div>
+
+    <script src="libs/swiper/swiper-4.2.6.min.js"></script>
+    <script>
+        // 滑动效果
+        var mySwiper = new Swiper(
+            ".swiper-container", {
+                //移动速度
+                speed: 2500,
+                //自动切换,可以自定义设置
+                autoplay: {
+                    deplay: 2000, //自动切换时间的间隔, 默认是3000
+                   stopOnLastSlide: true, //切换到最后一个结束,loop下无效
+                    disableOnInteraction: false, //操作(拖动,点击等)后是否禁用autoplay
+                    reverseDirection: false, //是否开启反向轮播
+                    waitForTransition: false, //是否等待过度完毕
+                },
+                //初始化时当前是第几个页面
+                initialSlide: 0,
+                //鼠标变为小手
+                grabCursor: true,
+                slidesPerView : 3, //slider容器能够同时显示的slides数量
+                slidesPerGroup : 3, //滑动的时候几个一组, 默认是1
+                centeredSlides : false, //默认是居左的, 设置true后居中
+                loop: true
+
+            });
+
+    </script>
+
+</body>
+</html>

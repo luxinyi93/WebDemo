@@ -1,0 +1,354 @@
+/*公共样式*/
+
+/* 设置字体样式 */
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+.link-color{
+    color: #888;
+}
+a:hover{
+    text-decoration: none;
+    color: #888;
+}
+
+/*设置字体图标*/
+@font-face {
+    font-family: "weijinsuo";
+    src: url("../font/MiFie-Web-Font.eot") format("embedded-opentype"),
+    url("../font/MiFie-Web-Font.svg") format("svg"),
+    url("../font/MiFie-Web-Font.ttf") format("truetype"),
+    url("../font/MiFie-Web-Font.woff") format("woff");
+}
+/* 属性选择器,将符合条件的选出来 */
+[class^="icon-"],
+[class*=" icon-"]{
+    font-family: weijinsuo;
+    font-style: normal;
+}
+
+.icon-mobilephone::before{
+    content: "\e908";
+    font-size: 13px;
+}
+.icon-telephone::before {
+    content: "\e909";
+    font-size: 15px;
+}
+
+.icon-logo::before {
+    content: "\e93e";
+}
+
+.icon-icon::before {
+    content: "\e920";
+}
+.icon-uniE907:before {
+    content: "\e907";
+}
+.icon-uniE906:before {
+    content: "\e906";
+}
+
+.icon-uniE905:before {
+    content: "\e905";
+}
+
+.header{
+}
+
+.header > .topbar{
+    height: 40px;
+    border-bottom: 1px solid #c0c0c0;
+    line-height: 40px;
+}
+
+.header .icon-icon{
+    font-size: 50px;
+    color: #f9280a;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.header .icon-logo{
+    font-size: 32px;
+    color: #3a3a3a;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+
+.header > .topbar > .container > .row > div{
+    height: 40px;
+    font-size: 12px;
+    color: #888;
+}
+
+.header > .topbar > .container > .row > div + div{
+    border-left: 1px solid #c0c0c0;
+}
+
+.header .mobile-link{
+    font-size: 12px;
+    color: #888;
+}
+
+.header .mobile-link > img{
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 15px;
+}
+
+.header .mobile-link:hover > img{
+    display: block;
+    z-index: 1001;
+}
+
+/*轮播图区域*/
+.slide > .carousel-inner > .item{
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}
+.slide > .carousel-inner > .item > img{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    /*当屏幕宽度大于768的时候,使用大图,此时会执行此段代码*/
+    .slide > .carousel-inner > .item{
+        height: 410px;
+    }
+}
+
+/*特色介绍部分*/
+.tesejieshao{
+    padding: 20px 0;
+    border-bottom:1px solid #cccccc;
+}
+.tesejieshao i{
+    font-size: 26px;
+}
+.tesejieshao > .container > .row > div{
+    margin-bottom: 15px;
+}
+/*立即预约部分*/
+.lijiyuyue{
+    font-size: 16px;
+    border-bottom: 1px solid #cccccc;
+}
+.lijiyuyue p{
+    line-height: 50px;
+    margin-bottom: 0;
+}
+.lijiyuyue p > span{
+    color: #e92322;
+}
+.lijiyuyue p > a{
+    color: #e92322;
+    border-bottom: 1px dashed #e92322;
+}
+/*tab选项卡部分*/
+.products{
+    background-color: #f0f0f0;
+    padding: 40px 0;
+}
+/*这样写会造成pc端始终有横向滚动条,最好是在js中设置横向滚条*/
+/*.products > .container > .nav-wapper{*/
+    /*overflow-x: scroll;*/
+/*}*/
+
+
+
+/*覆盖掉原有的样式,形成我们需要的样式*/
+.products > .container > .nav-wapper > .nav-tabs{
+    padding-left: 20px;
+}
+.products > .container > .nav-wapper > .nav-tabs > li{
+
+}
+.products > .container > .nav-wapper > .nav-tabs > li > a{
+    font-size: 16px;
+    color: #333333;
+
+}
+/*以下两个样式选择器都设置的border的颜色,所以要将active的样式写在下面
+    否则,当a在hover状态的时候会将active状态的样式冲掉*/
+.products > .container > .nav-wapper > .nav-tabs > li > a:hover{
+    background-color: transparent;
+    border-color: transparent;
+    color: #111;
+}
+.products > .container > .nav-wapper > .nav-tabs > li.active > a{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 4px solid #e92322;
+}
+.products > .container > .tab-content{
+    padding: 20px 0;
+}
+
+/*新闻列表部分*/
+.news{
+    padding: 20px 0;
+    border-bottom:1px solid #cccccc;
+}
+.news .news-title {
+    font-size: 18px;
+    border-bottom: 1px dashed #c0c0c0;
+    text-align: center;
+    position: relative;
+    margin-right: 10px;
+}
+.news .news-title::after{
+    display: inline-block;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -5px;
+    right: -10px;
+
+}
+/*字体图标*/
+.icon-news01:before {
+    content: "\e90e";
+    font-size: 28px;
+    color: #EAEAEA;
+}
+
+.icon-news02:before {
+    content: "\e90f";
+    font-size: 28px;
+    color: #EAEAEA;
+}
+
+.icon-news03:before {
+    content: "\e910";
+    font-size: 28px;
+    color: #EAEAEA;
+}
+
+.icon-news04:before {
+    content: "\e911";
+    font-size: 28px;
+    color: #EAEAEA;
+}
+.news .nav-pills > li > a{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+@media (max-width: 768px) {
+    .news > .container .nav-pills > li{
+        float: left;
+        margin-left: 15px;
+    }
+}
+
+/*合作伙伴区域*/
+.hzhb{
+    padding: 20px 0;
+}
+.hzhb ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.hzhb ul > li{
+    float: left;
+}
+.hzhb ul > li + li{
+    border-left: 1px dashed #e0e0e0;
+}
+.hzhb ul > li > a{
+    font-size: 60px;
+    color: #888888;
+    padding: 10px 20px;
+}
+/*字体图标*/
+.icon-uniE930:hover {
+    color: #df3232;
+}
+
+.icon-uniE930:before {
+    content: "\e946";
+}
+
+.icon-uniE92F:hover {
+    color: #e8380d;
+}
+
+.icon-uniE92F:before {
+    content: "\e92f";
+}
+
+.icon-uniE92E:hover {
+    color: #ed6f00;
+}
+
+.icon-uniE92E:before {
+    content: "\e92e";
+}
+
+.icon-uniE92A:hover {
+    color: #159f69;
+}
+
+.icon-uniE92A:before {
+    content: "\e92a";
+}
+
+.icon-uniE929:hover {
+    color: #07569e;
+}
+
+.icon-uniE929:before {
+    content: "\e929";
+}
+
+.icon-uniE931:hover {
+    color: #004098;
+}
+
+.icon-uniE931:before {
+    content: "\e931";
+}
+
+.icon-uniE92C:hover {
+    color: #d32019;
+}
+
+.icon-uniE92C:before {
+    content: "\e92c";
+}
+
+.icon-uniE92B:hover {
+    color: #3eac4a;
+}
+
+.icon-uniE92B:before {
+    content: "\e92b";
+}
+
+.icon-uniE92D:hover {
+    color: #2bb289;
+}
+
+.icon-uniE92D:before {
+    content: "\e92d";
+}
+
+
+
+/*脚注部分*/
+.footer{
+    height: 200px;
+}

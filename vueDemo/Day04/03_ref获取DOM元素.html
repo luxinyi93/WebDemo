@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件之间传递数据</title>
+    <script src="../libs/vue/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <input type="button" value="获取DOM数据" @click="getElement">
+        <!-- 1. 给要获取数据的标签添加ref属性 设置一个名称 -->
+        <p ref="text">我是p标签</p>
+        <hr>
+        <com ref="reference"></com>
+    </div>
+
+    <script>
+
+        var com = {
+            template: "<h1>我是子元素的H1</h1>",
+            data(){
+                return {
+                    msg: "我是子控件的数据"
+                }
+            },
+            methods: {
+                btn(){
+                    console.log("子控件的方法被调用了");
+                }
+            }
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                
+            },
+            methods: {
+                // 在Vue中不建议直接操作DOM, 如果要获取DOM元素的内容, 可以通过vue的ref属性来实现
+                getElement(){
+                    // 2.1  通过$refs来获得标签, 再获得数据
+                    // console.log(this.$refs.text.innerText);
+                    // 2.2 通过$refs来获取控件以及控件中的数据和方法
+                    console.log("子控件的数据: " + this.$refs.reference.msg);
+                    this.$refs.reference.btn();
+                }
+            },
+            components: {
+                com
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .box1{
+            border: 1px solid #38aaff;
+            width: 100px;
+            height: 100px;
+            /*position: fixed;设置该属性的元素在标准流中不占位置
+            并且无论窗口是否滚动,都固定在该位置*/
+            position: fixed;
+            left: 300px;
+            margin-bottom: 10px;
+        }
+        .box2{
+            border: 1px solid #ffab42;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            /*position: relative;的top/left/right/bottom值是相对于默认位置的
+            即使有了偏移量,原来的位置依然保留占位*/
+            /*position: relative;*/
+            /*top: 200px;*/
+        }
+        .box3{
+            border: 1px solid #9fff59;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+
+    </div>
+</body>
+</html>

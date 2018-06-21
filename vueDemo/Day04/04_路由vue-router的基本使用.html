@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-router的使用</title>
+    <script src="../libs/vue/vue.js"></script>
+    <!-- 1. 导入vue-router的包 -->
+    <script src="../libs/vue/vue-router.js"></script>
+    <style>
+        /* 默认的激活状态的样式 */
+        /* .router-link-active{
+            color: orangered;
+            font-size: 20px;
+            font-weight: 600;
+        } */
+        /* 自定义激活状态的样式, 通过linkActiveClass来设置 */
+        .my-link-active{
+            color: aquamarine;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- <a href="#/login">登录</a>
+        <a href="#/register">注册</a> -->
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <!-- 4. 添加到界面上 -->
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+        
+        
+    </div>
+
+    <script>
+        // 3. 创建组件对象
+        var login = {
+            template: "<h1>我是登录界面</h1>"
+        }
+        var register = {
+            template: "<h1>我是注册界面</h1>"
+        }
+
+
+        // 2. 创建vue-router的对象
+        var router = new VueRouter({
+        // 每个[路由规则]，都是一个对象，这个规则对象，身上，有两个必须的属性：
+        //  属性1 是 path， 表示监听 哪个路由链接地址；
+        //  属性2 是 component， 表示，如果 路由是前面匹配到的 path ，则展示 component 属性对应的那个组件
+        // 注意： component 的属性值，必须是一个 组件的模板对象， 不能是 组件的引用名称；
+            routes: [
+                {path: "/", redirect: "/login"},
+                {path: "/login", component: login},
+                {path: "/register", component: register}
+            ],
+            linkActiveClass: "my-link-active"
+        })
+
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                
+            },
+            router
+        })
+    </script>
+    
+</body>
+</html>

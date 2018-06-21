@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建组件的方式2</title>
+    <script src="../libs/vue/vue.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <a href="" @click.prevent="comName='login'">登录</a>
+        <a href="" @click.prevent="comName='register'">注册</a>
+
+        <transition mode="out-in">
+            <component :is="comName"></component>
+        </transition>
+        
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                comName: "login"
+            },
+            methods: {},
+            // 私有的组件, 只能在id为app的标签内使用
+            components: {
+                login: {
+                    template: "<h3>我是登录组件</h3>"
+                    // 组建中的data必须是一个方法, 通过return返回数据
+                },
+                register: {
+                    template: "<h3>我是注册组件</h3>"
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

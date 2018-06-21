@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>动画</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../libs/vue/vue.js"></script>
+        <style>
+            .ball{
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: #f00;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" value="toggle" @click="flag=!flag">
+            <!-- duration可以控制进出的动画的时间 -->
+            <transition
+                @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter">
+                <div class="ball" v-show="flag"></div>
+            </transition>
+        </div>
+
+
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    flag: false
+                },
+                methods: {
+                    // 动画的钩子函数的第一个参数 el 表示要执行的动画元素
+                    beforeEnter(el){
+                        // 设置动画开始之前的起始位置
+                        el.style.transform = "translate(0, 0)"
+                    },
+                    enter(el, done){
+                        el.offsetWidth;
+                        el.style.transform = "translate(150px, 300px)";
+                        el.style.transition = "all 1s ease";
+                        // done 就是afterEnter函数 实现过渡立即完成
+                        done();
+                    },
+                    afterEnter(el){
+                        // 每次点击动画开始的时候, 都会顺序执行动画的钩子函数
+                        // 所以晓求得位置都会回到开始的位置
+                        this.flag = !this.flag;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

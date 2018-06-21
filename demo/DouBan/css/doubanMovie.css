@@ -1,0 +1,73 @@
+/*顶部把bar的所有a便签的公共样式*/
+.movie-top-bar a{
+	display: inline-block;
+	height: 28px;
+	padding: 0 12px;
+	color: #d5d5d5;
+	font-size: 12px;
+}
+.movie-top-bar a:hover{
+	color: #fff;
+}
+/*顶部bar部分的样式开始*/
+
+/*顶部bar的基础样式*/
+.movie-top-bar{
+	min-width: 950px;
+	height: 28px;
+	background-color: #545652;
+	position: relative;
+}
+/*顶部bar的左侧导航部分*/
+.movie-nav-list > ul > li{
+	width: 48px;
+	line-height: 28px;
+	float: left;
+}
+/*右侧下载app部分*/
+.downloadApp{
+	position: relative;
+	float: right;
+	line-height: 28px;
+}
+.downloadApp > a{
+	display: inline-block;
+	height: 28px;
+}
+.downloadApp > .app-saoma{
+	width: 250px;
+	border: 1px solid #e6e6e6;
+	background-color: #fff;
+	position: absolute;
+	text-align: center;
+	top: 28px;
+	left: -80px;
+	display: none;
+}
+.app-saoma-title{
+	font-size: 24px;
+	font-weight: 400;
+	padding-top: 170px;
+	background: url("../img/nav_doubanapp_6.png") no-repeat center center;
+}
+.app-saoma-pic{
+	padding-top: 190px;
+	background: transparent url("../img/nav_doubanapp_6_qrcode.png") center center no-repeat;
+	color: transparent;
+}
+.app-model{
+	margin-bottom: 40px;
+}
+.app-model a{
+	color: #6c77b4;
+	font-weight: bold;
+	font-size: 16px;
+}
+.app-model a:hover{
+	color: #6c77b4;
+}
+/*右侧注册登录部分*/
+.login{
+	float: right;
+	line-height: 28px;
+}

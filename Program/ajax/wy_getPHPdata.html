@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wy_getPHPdata</title>
+</head>
+<body>
+    <form id="getForm">
+        <input type="text" name = "user" id="getName">
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>
+<script>
+    var getForm = document.getElementById("getForm");
+    getForm.submit = function (e) {
+        // submit有默认的提交事件,会自动刷新页面,此处要将默认的事件干掉
+        e.preventDefault();
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "php/process.php", true);
+        xhr.onreadystatechange = function () {
+
+        }
+        xhr.send();
+    }
+</script>

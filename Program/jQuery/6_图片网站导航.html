@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_图片网站导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 733px;
+            height: 260px;
+            border: 1px solid #cccccc;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-left: 5px;
+        }
+        .box li{
+            width: 178px;
+            height: 125px;
+            float: left;
+            margin: 0 5px 5px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .box li div, .box li p{
+            width: 178px;
+            height: 25px;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+            line-height: 25px;
+            position: absolute;
+            bottom: -25px;
+        }
+        .box li div{
+            background-color: #000;
+        }
+        .box li p{
+            background: url("images/xiaotubiao.png") no-repeat 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="#"><img src="images/baidu.JPG" alt=""></a>
+            </li>
+            <li><a href="#"><img src="images/taobao.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/jingdong.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/tengxun.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/xinlang.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/souhu.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/wangyi.JPG" alt=""></a></li>
+            <li><a href="#"><img src="images/youku.JPG" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(function () {
+        // 添加div和p标签
+        $(".box li").append("<div></div><p>百度一下，你就知道！</p>")
+            //div实现透明度的变化，所以要找到div标签。div是li的孩子
+            .children("div")
+            .fadeTo(300, 0.5)
+            // 下一个兄弟标签
+            .next("p")
+            // 遍历每一个p标签，设置背景的position
+            .each(function (index) {
+                $(this).css("background-position", "5px -"+ (index*25) +"px")
+            });
+        $(".box li").mouseenter(function () {
+            // 此处需要stop(),如果不stop的话鼠标经过动画就会执行到底
+            $(this).children("div, p").stop().animate({
+                "bottom" : 0
+            }, 500);
+        });
+
+        $(".box li").mouseleave(function () {
+            $(this).children("div, p").stop().animate({
+                "bottom" : "-25px"
+            }, 500);
+        });
+    })
+</script>

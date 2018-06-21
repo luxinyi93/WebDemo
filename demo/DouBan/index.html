@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>豆瓣</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/publicStyle.css">
+</head>
+<body>
+	<!--头部的导航栏-->
+	<div class="index-nav-bar" id="index_nav_bar">
+		<!--logo-->
+		<h1><a href="http://douban.com"><img src="img/logo_db.png" alt=""></a></h1>
+		<!--搜索框-->
+		<div class="index-search">
+			<form>
+				<!--输入框-->
+				<span class="form-text">
+					<input type="text" maxlength="60" placeholder="书籍. 音乐. 电影. 小组. 小站. 成员"></span>
+				</span>
+				<!--搜索按钮-->
+				<span class="form-btn">
+					<input type="submit" value="search">
+				</span>
+			</form>
+		</div>
+		<!--导航栏-->
+		<div class="index-nav-links">
+			<ul>
+				<li class="item"><a href="https://book.douban.com/">读书</a></li>
+				<li class="item"><a href="https://book.douban.com/">电影</a></li>
+				<li class="item"><a href="https://book.douban.com/">音乐</a></li>
+				<li class="item"><a href="https://book.douban.com/">小组</a></li>
+				<li class="item"><a href="https://book.douban.com/">同城</a></li>
+				<li class="item"><a href="https://book.douban.com/">FM</a></li>
+				<li class="item"><a href="https://book.douban.com/">时间</a></li>
+				<li class="item"><a href="https://book.douban.com/">市集</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--登录部分-->
+	<div class="index-login" id="index_login">
+		<!-- 右侧的登录内容 -->
+		<div class="index-login-content">
+			<form class="index-login-form">
+				<div class="form-box">
+					<input type="text" placeholder="邮箱/手机号">
+					<input type="password" placeholder="密码">
+				</div>
+				<div class="form-btn">
+					<input type="submit" value="登录豆瓣">
+					<a href="#">注册账号</a>
+				</div>
+				<div class="rem-pass">
+					<label for="remember_me"><input type="checkbox" id="remember_me">记住我</label>
+					<ul class="login-for-third">
+						<li><a href="#"><img src="img/wechat.png" alt=""></a></li>
+						<li><a href="#"><img src="img/weibo.png" alt=""></a></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+		<!--中间的下载豆瓣部分 -->
+		<div class="douban-app">
+			<p>豆瓣 5.0</p>
+			<div class="dpuban-app-btn">
+				<a href="https://www.douban.com/doubanapp/frodo?channel=nimingye&wechat=0&os=Windows">下载豆瓣 App</a>
+				<div class="douban-app-btn-green">
+					<img src="img/icon_qrcode_green.png" alt="" width="26px" height="26px">
+					<div class="daouban-app-saoma">
+						<img src="img/doubanapp_qrcode.png" alt="" height="30px" width="30px">
+						<p>ios / Android 扫码直接下载</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!--豆瓣电影部分-->
+	<div class="index-movie" id="index_movie">
+		<div class="content">
+			<!-- 左侧导航 -->
+			<div class="movie-nav">
+				<h2><a href="#">电影</a></h2>
+				<ul>
+					<li><a href="#">影讯/购票</a></li>
+					<li><a href="#">选电影</a></li>
+					<li><a href="#">电视剧</a></li>
+					<li><a href="#">排行榜</a></li>
+					<li><a href="#">分类</a></li>
+					<li><a href="#">影评</a></li>
+					<li><a href="#">预告片</a></li>
+					<li><a href="#">问答</a></li>
+				</ul>
+			</div>
+
+			<!-- 中间电影海报 -->
+			<div class="hot-movie" id="hot_movie">
+				<p class="h2-title">正在热映...(<a href="https://movie.douban.com/cinema/nowplaying/beijing/">更多</a>)</p>
+				<div id="any_movies">
+					
+				</div>
+			<!-- 	<ul>
+					<li>
+						<div class="items">
+							<img src="img/p2516079193.webp" alt="" class="item-cover">
+							<a href="#" class="h2-title">狂暴巨兽</a>
+							<div class="stars">
+								<span class="item-stars"></span>
+								<span class="item-result">6</span>
+							</div>
+							<a href="#" class="movie-shopping">选座购票</a>
+						</div>
+					</li>
+					<li>
+						<div class="items">
+							<img src="img/p2516079193.webp" alt="" class="item-cover">
+							<a href="#" class="h2-title">狂暴巨兽</a>
+							<div class="stars">
+								<span class="item-stars"></span>
+								<span class="item-result">6</span>
+							</div>
+							<a href="#" class="movie-shopping">选座购票</a>
+						</div>
+					</li>
+
+				</ul> -->
+			</div>
+			<!-- 右侧列表 -->
+			<div class="nav-list">
+				<p class="h2-title">影片分类...(<a href="https://movie.douban.com/cinema/nowplaying/beijing/">更多</a>)</p>
+				<div class="movie-ul-list">
+					<ul>
+					<li><a href="#">爱情</a></li>
+					<li><a href="#">喜剧</a></li>
+					<li><a href="#">剧情</a></li>
+					<li><a href="#">动画</a></li>
+					<li><a href="#">科幻</a></li>
+					<li><a href="#">动作</a></li>
+					<li><a href="#">经典</a></li>
+					<li><a href="#">悬疑</a></li>
+					<li><a href="#">犯罪</a></li>
+					<li><a href="#">青春</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+					<li><a href="#">惊悚</a></li>
+				</ul>
+				</div>
+				<p class="h2-title">近期热门...(<a href="https://movie.douban.com/chart">更多</a>)</p>
+				<div class="top10-movie" id="top10-movie">
+					<!-- <ul class="hot-ul-list">
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+						<li><span>1. </span><a href="#">血观音</a></li>
+					</ul> -->
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+	<script src="libs/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="libs/template/template.js"></script>
+	<script src="js/index.js"></script>
+
+	<script>
+		$(function () {
+			$("#index_nav_bar > .index-nav-links > ul > .item").each(function (i, item) {
+				var $item = $(item);
+				$item.children().css({"background-position": (i*(-60)) + "px 0"});
+            });
+
+            $("#index_login > .douban-app .douban-app-btn-green").hover(function() {
+            	$(".daouban-app-saoma").css("display", "block");
+            }, function() {
+            	$(".daouban-app-saoma").css("display", "none");
+            });
+        })
+	</script>
+
+	<script id="hot_movie_html" type="text/html">
+		{{if subjects}}
+			<ul>
+			{{each subjects as value i}}
+				{{if i < 8}}
+				<li>
+					<div class="items">
+						<img src="{{value.images.small}}" alt="" class="item-cover">
+						<a href="{{value.alt}}" class="movie-title">{{value.title}}</a>
+						<div class="stars">
+							<span class="item-stars"></span>
+							<span class="item-result">{{value.rating.average}}</span>
+						</div>
+						<a href="https://movie.douban.com/subject/{{value.id}}/cinema/beijing/" class="movie-shopping">选座购票</a>
+					</div>
+				</li>
+				{{/if}}
+			{{/each}}
+			</ul>
+		{{/if}}
+	</script>
+
+	<script id="top10_movie_html" type="text/html">
+		{{if subjects}}
+			<ul class="hot-ul-list">
+				{{each subjects as value j}}
+					{{if j < 10}}
+						<li><span class="top10-span"> {{j+1 + "."}} </span><a href={{value.alt}} class="top10-a">{{value.title}}</a></li>
+					{{/if}}
+				{{/each}}	
+			</ul>	
+		{{/if}}
+	</script>
+
+</body>
+</html>

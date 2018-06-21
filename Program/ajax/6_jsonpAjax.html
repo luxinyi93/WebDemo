@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_jsonpAjax</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--原生jsonp的使用-->
+<!--<script>-->
+    <!--var liudehua = function (data) {-->
+        <!--console.log(data);-->
+    <!--}-->
+<!--</script>-->
+<!--<script src="php/jsonp.php?_jsonp=liudehua"></script>-->
+
+<!--jQuery的jsonp的使用-->
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            url: "php/jsonp.php",
+
+            success: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+    })
+</script>

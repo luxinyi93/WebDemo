@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_常用DOM操作</title>
+</head>
+<body>
+    <input type="button" value="添加属性">
+    <input type="button" value="获取属性">
+    <input type="button" value="移除属性">
+    <input type="button" value="设置值">
+    <input type="button" value="获取值">
+    <input type="button" value="设置html">
+    <input type="button" value="获取html">
+    <div>
+        <input type="text" id="text">
+
+    </div>
+
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(function () {
+        //添加属性
+        $("input[type = button]").eq(0).click(function () {
+            $(this).attr("title", "我是添加的属性tiitle");
+        });
+        // 获取属性：得到的是属性的值
+        $("input[type = button]").eq(1).click(function () {
+            var title = $("input[type = button]").eq(0).attr("title");
+            console.log(title);
+        });
+        //移除属性
+        $("input[type = button]").eq(2).click(function () {
+            $("input[type = button]").eq(0).removeAttr("title");
+        });
+
+        //设置值：主要是针对表单的
+        $("input[type = button]").eq(3).click(function () {
+            $("#text").val("我是动态添加的内容");
+        });
+        //获取值(没有参数的时候)
+        $("input[type = button]").eq(4).click(function () {
+            console.log($("#text").val());
+        });
+        //设置html：添加新的元素，在添加的时候会清除之前的元素
+        $("input[type = button]").eq(5).click(function () {
+            $("div").html("<p>我是新添加的p标签</p>")
+        });
+
+
+
+    })
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_jQuery入门</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击事件</button>
+    <div>我是一个大盒子</div>
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("div").css({
+            "background": "red",
+            "font-size": "20px"
+        });
+    });
+</script>

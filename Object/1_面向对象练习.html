@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>
+<script>
+    // 这样的原型结构,每增加一个属性,就要调用一次prototype, 此时的constructor指向的是Person
+    function Person() {}
+    Person.prototype.name = "zhangsan";
+    Person.prototype.age = 20;
+    Person.prototype.job = "worker";
+    Person.prototype.getName = function () {
+        console.log(this.name);
+    }
+
+    var person1 = new Person();
+    var person2 = new Person();
+
+    person1.getName();
+//    hasOwnProperty()方法判断该属性是否是实例属性
+    console.log(person1.hasOwnProperty("name"));
+    person1.name = "lisi";
+    console.log(person1.hasOwnProperty("name"));
+    console.log("name" in person1);
+    person1.city = "beijing";
+    // 获取实例对象/原型中所有的实例属性
+    var person1Keys = Object.keys(person1);
+    console.log(person1Keys);
+    console.log(Object.keys(Person.prototype));
+    console.log(Object.getOwnPropertyNames(Person.prototype));
+
+    // 这样的原型语法更为简洁 但是此时的constructor不再指向Book 而是指向Object
+    function Book() {}
+    Book.prototype = {
+      name: "时间简史",
+      time: "1998年",
+        number: 384,
+        getName: function () {
+            console.log(this.name);
+        }
+    };
+    // 如果需要特殊的指定,可以通过以下方式
+    // 既能保持不可枚举的特性 又能指向特定对象
+//    Object.defineProperties(Book.prototype, "constructor", {
+//       enumerable: false,
+//       value: Book
+//    });
+
+
+    var factory = function () {
+        this.a = "a";
+        this.b = "b";
+        this.c = {
+            a: "aa",
+            b: function () {
+                return this.a;
+            }
+        }
+    }
+    console.log(new factory().c.b());
+
+</script>

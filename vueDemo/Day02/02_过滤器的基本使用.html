@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>过滤器</title>
+	<script src="../libs/vue/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		<p>{{msg | msgFormat}}</p>
+	</div>
+
+	<script>
+		// 定义一个Vue全局的过滤器, 所有的Vue实例共享
+		Vue.filter("msgFormat", function(msg){
+			// 传入字符串的时候, 只更改第一个被发现的目标词汇
+			// return msg.replace('World', "China");
+
+			// 传入正则表达式, 会替换所有的符合要求的词汇
+			return msg.replace(/World/g, "China");
+		});
+
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				msg: "Hello World Hi World welcome World"
+			},
+			methods: {},
+			// 私有过滤器定义在filters中, 由过滤器的名称和参数组成
+			// 如果私有过滤器和全局过滤器重名, 那么就近使用
+			filters: {
+				msgFormat:function(msg){
+					return msg.replace(/World/g, "China");
+				}
+			}
+		});
+	</script>
+</body>
+</html>

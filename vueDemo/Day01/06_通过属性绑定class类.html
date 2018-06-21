@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>设置class类的方法</title>
+	<script src="../libs/vue/vue.js"></script>
+
+	<style>
+		.color{
+			color: #f00;
+		}
+		.size{
+			font-size: 16px;
+		}
+		.active{
+			letter-spacing: 0.5em;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="app">
+		<!-- 方法一: 直接传递一个数组 -->
+		<!-- <h1 :class="['color', 'size']">我是一个H1标签</h1> -->
+
+		<!-- 在数组中使用三元表达式 -->
+		<!-- <p :class="['color', 'size', flag?'active':'']">我是p标签</p> -->
+
+		<!-- 在数组中使用对象 -->
+		<p :class="['color', 'size', {'active':flag}]">我是第二个p标签</p>
+
+		<!-- 直接绑定对象 -->
+		<p :class="classObj">我是第三个p标签</p>
+	</div>
+
+	<script>
+		var vm = new Vue({
+		el: "#app",
+		data: {
+			flag: false,
+			classObj: {color: true, size: true, active: true}
+		},
+		methods: {}
+	});
+	</script>
+	
+</body>
+</html>

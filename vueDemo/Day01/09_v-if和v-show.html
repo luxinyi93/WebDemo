@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-if和v-show</title>
+	<script src="../libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="切换" @click="flag=!flag">
+		<!-- v-if 每次都会重新创建或者删除元素 -->
+		<!-- v-if 有较高的切换性能消耗, 如果涉及到元素的频繁切换 不适用v-if -->
+		<p v-if="flag">我是v-if控制的p标签</p>
+		<!-- v-show 不会每次进行DOM的删除和创建 只切换元素的display:none 样式 -->
+		<!-- v-show 有较高的初始渲染消耗  -->
+		<p v-show="flag">我是v-show控制的p标签</p>
+	</div>
+
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				flag: true
+			},
+			methods: {
+
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestCallback</title>
+</head>
+<body>
+<input type="button" value="点击" id="btn"> `
+
+</body>
+</html>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    function abc(data) {
+        console.log(data);
+    }
+//    $("#btn").click(function () {
+//        $.ajax({
+//            url: "php/jsonp.php?_jsonp=abc",
+//            type: "get",
+//            dataType: "jsonp",
+//        })
+//    });
+
+</script>
+<script src="php/jsonp.php?_jsonp=abc"></script>

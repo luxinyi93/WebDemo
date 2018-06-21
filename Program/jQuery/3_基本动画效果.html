@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_基本动画效果</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #f9ff33;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button>下拉</button>
+    <button>收起</button>
+    <button>切换</button>
+    <div></div>
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        // 基本动画
+//        $("button").eq(0).click(function () {
+//            $("div").show(1000, function () {
+//                $("div").hide(1000);
+//            });
+//        });
+
+        // 滑动动画
+        $("button").eq(0).click(function () {
+            $("div").slideDown(2000);
+        });
+        $("button").eq(1).click(function () {
+            $("div").slideUp(2000);
+        });
+        $("button").eq(2).click(function () {
+            $("div").slideToggle(2000);
+        });
+    });
+</script>

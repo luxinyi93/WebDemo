@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>keyup事件</title>
+    <script src="../libs/vue/vue.js"></script>
+    <script src="../libs/vue/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <router-view></router-view>
+
+    </div>
+
+
+    <script>
+        var login = {
+            template: "<h3>登录</h3>"
+        }
+        var register = {
+            template: "<h3>注册</h3>"
+        }
+
+        var router = new VueRouter({
+            routes: [
+                { path: "/login", component: login },
+                { path: "/register", component: register }
+            ]
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {},
+            methods: {
+
+            },
+            router,
+            // 方式1: 使用watch监听数据的改变(watch不仅可以监听DOM元素的改变,还可以监听非DOM元素的改变)
+            watch: {
+                //  this.$route.path
+                '$route.path': function (newVal, oldVal) {
+                    if (newVal === '/login') {
+                        console.log('欢迎进入登录页面')
+                    } else if (newVal === '/register') {
+                        console.log('欢迎进入注册页面')
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

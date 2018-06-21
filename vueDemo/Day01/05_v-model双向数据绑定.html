@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-model双向数据绑定</title>
+	<script src="../libs/vue/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{msg}}</p>
+		<input type="text" v-model="msg" style="width: 100%">
+	</div>
+	<!-- v-model 实现双向数据绑定
+		只能运用在表单元素中,常用的: input select textarea checkbox -->
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				msg: "Hello World!"
+			}
+		});
+	</script>
+</body>
+</html>

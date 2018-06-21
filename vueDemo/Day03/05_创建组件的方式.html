@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建组件的方式</title>
+    <script src="../libs/vue/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <!-- 如果要使用组件,直接把组件的名称以html标签的形式引入到页面中 -->
+        <!-- 如果使用 Vue.component 定义全局组件的时候, 组件名称使用了驼峰命名,在使用组件的时候要用-链接 -->
+        <my-component></my-component>
+    </div>
+
+    <script>
+        // 1.1使用Vue.extend来创建全局的VUe组件
+        var com = Vue.extend({
+            template: '<h3>我是使用Vue.extend创建的h3</h3>'
+        })
+        // 1.2 使用Vue.component
+        // 第一个参数: 组建的名称
+        // 第二个参数: 组件要展示的内容
+        Vue.component("myComponent", com);
+
+        var vm = new Vue({
+            el: "#app",
+            data: {},
+            methods: {}
+        })
+    </script>
+    
+</body>
+</html>

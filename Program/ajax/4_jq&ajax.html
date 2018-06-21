@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4_jq&ajax</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <div id="content"></div>
+</body>
+</html>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            $.ajax({
+                url: "php/04apple.php",
+                // 后台文件内容的格式类型，html\json\script...
+                dataType: "html",
+                // 请求方式
+                type: "get",
+                success:function (data) {
+                    $("#content").html(data);
+                },
+                error:function (e) {
+                    console.log(e);
+                }
+            });
+        });
+    })
+</script>

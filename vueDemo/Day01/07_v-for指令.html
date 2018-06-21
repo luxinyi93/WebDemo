@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-for指令的使用</title>
+	<script src="../libs/vue/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<!-- v-for 循环普通数组 -->
+		<p v-for="item in number">{{ item }}</p>
+
+		<!-- v-for 循环对象数组 -->
+		<p v-for="(item, i) in people"> id:{{item.id}}-->name:{{item.name}}-->index:{{i}} </p>
+
+		<!-- v-for 循环对象 -->
+		<p v-for="(val, key) in userObj"> value:{{val}} </p>
+
+		<!-- v-for 迭代数字 从1开始-->
+		<p v-for="count in 10"> value:{{count}} </p>
+	</div>
+
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				number: [1, 2, 3, 4, 5],
+				people: [
+					{id: 1, name: "zhangsan"},
+					{id: 2, name: "lisi"},
+					{id: 3, name: "wangwu"},
+					{id: 4, name: "zhaoliu"}
+				],
+				userObj: {
+					id: 1,
+					name: "anna.stack",
+					sex: "woman",
+					age: 29
+				}
+			},
+			methods:{
+
+			}
+		});
+	</script>
+</body>
+</html>

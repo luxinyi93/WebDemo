@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>动画</title>
+	<script src="../libs/vue/vue.js"></script>
+
+	<style>
+		/* 前缀可以区分不同组之间的动画 以v-开头的是公用的样式 */
+		.v-enter,
+		.v-leave-to{
+			opacity: 0;
+			transform: translateX(150px);
+		}
+		.v-enter-active,
+		.v-leave-active{
+			transition: all 0.5s ease;
+		}
+		/* 自定义的前缀, 可以区分动画 */
+		.my-enter,
+		.my-leave-to{
+			opacity: 0;
+			transform: translateY(150px);
+		}
+		.my-enter-active,
+		.my-leave-active{
+			transition: all 0.5s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="toggle" @click="flag = !flag">
+
+		<transition>
+			<p v-if="flag">这是一段有动画的段落</p>	
+		</transition>
+		<hr>
+		<input type="button" value="toggle1" @click="flag1 = !flag1">
+		<transition name="my">
+				<p v-if="flag1">这是一段有动画的段落</p>	
+			</transition>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				flag: true,
+				flag1: true
+			},
+			methods: {}
+		})
+	</script>
+</body>
+</html>

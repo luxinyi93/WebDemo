@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9_双向选择</title>
+    <style>
+        .src-city, .tar-city{
+            width: 150px;
+            height: 250px;
+            background-color: #ccc;
+        }
+        .buttons{
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<select name="src-city" class="src-city" id="src_city" multiple>
+    <option value="text">北京</option>
+    <option value="text">上海</option>
+    <option value="text">重庆</option>
+    <option value="text">天津</option>
+</select>
+<div class="buttons">
+    <button id="select_all">&gt;&gt;</button>
+    <button id="select_none">&lt;&lt;</button>
+    <button id="select_one">&gt;</button>
+    <button id="no_select">&lt;</button>
+</div>
+<select name="tar-city" class="tar-city" id="tar_city" multiple>
+
+</select>
+</body>
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(function () {
+        $("#select_all").on("click", function () {
+            $("#src_city option").appendTo("#tar_city");
+        });
+
+        $("#select_none").on("click", function () {
+            $("#tar_city option").appendTo("#src_city");
+        });
+
+        $("#select_one").on("click", function () {
+            // 将选中的option放到右边
+            $("#src_city option:selected").appendTo("#tar_city");
+        });
+
+        $("#no_select").on("click", function () {
+            // 将选中的option放到右边
+            $("#tar_city option:selected").appendTo("#src_city");
+        });
+    });
+</script>

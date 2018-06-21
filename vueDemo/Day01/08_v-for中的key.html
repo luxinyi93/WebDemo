@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-for指令的使用</title>
+	<script src="../libs/vue/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<label>Id:
+			<input type="text" id="id" v-model="id">
+		</label>
+
+		<label>姓名:
+			<input type="text" id="name" v-model="name">
+		</label>
+
+		<input type="button" value="添加" @click="add">
+
+		<!-- v-for 循环的时候, key属性只能使用 number/string 类型的数据 -->
+		<!-- key 在使用的时候, 必须使用 v-bind 属性绑定 key 的值 -->
+		<p v-for="item in people" :key="item.index">
+			<input type="checkbox">id:{{item.id}} ++++ name:{{item.name}}
+		</p>
+	</div>
+
+
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				id: "",
+				name: "",
+				people: [
+					{id: 1, name: "zhangsan"},
+					{id: 2, name: "lisi"},
+					{id: 3, name: "wangwu"},
+					{id: 4, name: "zhaoliu"}
+				]
+			},
+			methods:{
+				add(){
+					this.people.unshift({id:this.id, name:this.name});
+				}
+			}
+		});
+	</script>
+</body>
+</html>

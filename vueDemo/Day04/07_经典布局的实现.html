@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由传参</title>
+    <script src="../libs/vue/vue.js"></script>
+    <script src="../libs/vue/vue-router.js"></script>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .header {
+            background-color: aquamarine;
+            height: 100px;
+        }
+        .index-body{
+            display: flex;
+            height: 600px;
+        }
+        .main{
+            flex: 8;
+            background-color: orange;
+        }
+        .left{
+            background-color: plum;
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <router-view></router-view>
+        <div class="index-body">
+            <!-- 通过 name 属性绑定组件 如果没有name绑定,默认是显示default中的组件 -->
+            <router-view name="left"></router-view>
+            <router-view name="main"></router-view>
+        </div>
+
+    </div>
+
+    <script>
+        var header = {
+            template: "<p class='header'>我是Header头部区域</p>"
+        }
+
+        var leftBox = {
+            template: "<p class='left'>我是Left侧边栏区域</p>"
+        }
+
+        var mainBox = {
+            template: "<p class='main'>我是main主体区域</p>"
+        }
+
+        var router = new VueRouter({
+            routes: [
+                {
+                    // 给根目录下配置三个组件, 通过 components 来设置
+                    // 参数1: 组件名; 参数2: 组件的对象
+                    path: "/",
+                    components: {
+                        "default": header,
+                        "left": leftBox,
+                        "main": mainBox
+                    }
+                }
+            ]
+        })
+
+        var vm = new Vue({
+            el: "#app",
+            data: {},
+            methods: {},
+            router
+        })
+    </script>
+
+</body>
+
+</html>

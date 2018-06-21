@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_weather</title>
+
+</head>
+<body>
+<div>
+    <button id="btn">请求</button>
+    <p id="title"></p>
+    <p id="author"></p>
+</div>
+</body>
+</html>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/template.js"></script>
+<script type="text/javascript">
+    function handResponse(data) {
+        console.log("我这个东西调用了: ");
+        $.each(data,function(i,element){
+            console.log("第"+i+"个:"+element.name);
+        });
+    }
+
+    $(function () {
+        $("#btn").click(function () {
+            $.ajax({
+                async: true,
+                url: "php/addressService.php",
+                // 请求方式
+                type: "GET",
+                // 后台文件内容的格式类型，html\json\script...
+                dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                jsonpCallback: 'handResponse', //设置回调函数名
+                data: {
+                    flag: 1
+                },
+                success: function (response, status, xhr) {
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText);
+                    //console.log(response);
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+    })
+
+
+    //    $(function () {
+    //        var reqUrl = "https://newhuaweiclient.reader.qq.com/v5_6/queryOperation?cids=11432";
+    //        $("#btn").click(function () {
+    //            var xmlhttp;
+    //            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    //                xmlhttp = new XMLHttpRequest();
+    //            }
+    //            else {// code for IE6, IE5
+    //                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    //            }
+    //            xmlhttp.open("GET", reqUrl, true);
+    //            xmlhttp.onreadystatechange = function () {
+    //                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    //                    console.log(xmlhttp.responseText)
+    //                }
+    //            }
+    //            xmlhttp.send();
+    //        });
+    //    })
+
+
+</script>

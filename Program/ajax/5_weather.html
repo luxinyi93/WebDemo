@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_weather</title>
+    <style>
+        .weather{
+            width: 300px;
+            height: 500px;
+            background-color: #ffceac;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .weather .btn{
+            height: 40px;
+            background-color: #ffab42;
+            padding-top: 20px;
+        }
+
+        .weather .info{
+            margin-top: 10px;
+            background-color: #9fff59;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather" id="weather">
+        <div class="btn">
+            <select name="city" id="cities">
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+            </select>
+            <button class="query" id="query">查询</button>
+        </div>
+        <div class="info" id="info">
+
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/template.js"></script>
+<!--这是拼接了html的标签,要嵌入到网页中,所以type是html-->
+<script id="textId" type="text/html">
+    <!--用template的方式拼接字符串-->
+    {{if longitude}}
+        <ul>
+            <li>经度:{{longitude}}</li>
+            <li>维度:{{latitude}}</li>
+            <li>海拔高度:{{altitude}}</li>
+            <li>天气:{{weather}}</li>
+            <li>温度:{{temp}}</li>
+            <li>最低温度:{{l_tmp}}</li>
+            <li>最高温度:{{h_tmp}}</li>
+            <li>风向:{{WD}}</li>
+            <li>风速:{{WS}}</li>
+            <li>日出时间:{{sunrise}}</li>
+            <li>日落时间:{{sunset}}</li>
+        </ul>
+    {{/if}}
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#cities").change(function () {
+            $("#info").innerHTML = " ";
+        });
+        $("#query").click(function () {
+            // 第一步: 获取select中被选中的option的数据
+            var cityName = $("#cities option:selected").text();
+            queryCityCode(cityName);
+        });
+    });
+
+    // 第二步:获得城市对应的编码
+    function queryCityCode(cityName) {
+        $.ajax({
+           type: "get",
+           dataType: "json",
+           url: "php/05citycode.php",
+            data: {cityName: cityName},
+            // 回调函数:获取数据成功之后需要进行的操作
+            success: function (data) {
+               // 成功获取城市代码之后,根据代码查询天气
+                queryCityWeather(data.cityCode);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+    // 第三步:根据获得的编码获取天气数据
+    function queryCityWeather(cityCode) {
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "php/05weather.php",
+            data: {cityCode: cityCode},
+            success: function (data) {
+                var html = template("textId", data.retData);
+                $("#info").html(html);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        })
+    }
+
+</script>

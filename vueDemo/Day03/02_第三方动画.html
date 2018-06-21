@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>动画</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../libs/vue/vue.js"></script>
+        <link rel="stylesheet" href="../libs/animate.css">
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" value="toggle" @click="flag=!flag">
+            <!-- duration可以控制进出的动画的时间 -->
+            <transition 
+            enter-active-class="bounceIn" 
+            leave-active-class="bounceOut"
+            :duration="{ enter: 400, leave: 800 }">
+                <p class="animated" v-if="flag">我是p标签</p>
+            </transition>
+        </div>
+
+
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    flag: true
+                },
+                methods: {
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--设置当前的字符编码-->
+    <meta charset="UTF-8">
+    <!--兼容当前的ie浏览器 (让IE使用最新的渲染引擎工作)-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--声明当前网页在移动端浏览器中展示的相关设置: initial-scale缩放倍数; width视口的默认宽度-->
+    <!--viewport: 视口 作用:在移动端浏览器中,当页面超出设备宽度,
+    浏览器内部虚拟了一个页面容器,将这个页面容器缩放到设备这么大,然后展示-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>WeiJinSuo</title>
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/navbar-weijinsuo.css">
+    <link rel="stylesheet" href="css/panel-weijinsuo.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <div class="header" id="header">
+        <!--添加响应式元素 visible-md visible-lg : 表示只在中等和大窗口显示-->
+        <div class="topbar visible-md visible-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <a href="#" class="mobile-link">
+                            <i class="icon-mobilephone"></i>
+                            <span>手机微金所</span>
+                            <i class="glyphicon glyphicon-chevron-down"></i>
+                            <img src="img/c_06.jpg" height="136" width="120" alt="扫一扫">
+                        </a>
+                    </div>
+                    <div class="col-md-5 text-center">
+                        <i class="icon-telephone"></i>
+                        <span>4006-89-4006（服务时间：9:00-21:00）</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <a href="#" class="link-color">常见问题</a>
+                        <a href="#" class="link-color">财富登录</a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="#" class="btn btn-danger btn-sm">免费注册</a>
+                        <a href="#" class="btn btn-link btn-sm" data-toggle="modal" data-target="#login_form">登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--添加data-spy="affix" data-offset-top="60" data-offset-bottom="200"为了实现悬停的效果
+               data-offset-top="60" : 什么时候悬停
+               data-offset-bottom="200" : 什么时候恢复-->
+        <nav class="navbar navbar-weijinsuo navbar-static-top" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+            <div class="container">
+                <div class="navbar-harder">
+                    <!--添加面包菜单-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#weijinsuo_list" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <!--面包菜单的三条杠-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a href="#" class="navbar-brand">
+                        <i class="icon-icon"></i>
+                        <i class="icon-logo"></i>
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="weijinsuo_list">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">我要投资</a></li>
+                        <li><a href="#">我要借款</a></li>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">新手专区</a></li>
+                        <li><a href="#">最新动态</a></li>
+                        <li><a href="#">微论坛</a></li>
+                    </ul>
+                    <!--在此处添加隐藏,,,表示在小窗口的时候,个人中心选项隐藏起来-->
+                    <ul class="nav navbar-nav navbar-right hidden-sm">
+                        <li><a href="#">个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--轮播图区域开始-->
+    <section id="index_lunbotu" class="carousel slide" data-ride="carousel">
+            <!-- 下方的小圆点 -->
+            <ol class="carousel-indicators">
+                <li data-target="#index_lunbotu" data-slide-to="0" class="active"></li>
+                <li data-target="#index_lunbotu" data-slide-to="1"></li>
+                <li data-target="#index_lunbotu" data-slide-to="2"></li>
+                <li data-target="#index_lunbotu" data-slide-to="3"></li>
+            </ol>
+
+            <!-- 轮播的图片 -->
+            <div class="carousel-inner" role="listbox">
+                <!--将轮播的图片作为北京插入到div中,,,通过background-position来实现居中显示,,后期的维护也更加方便-->
+                <!--相比用css添加背景图片,,,行内式更加方便维护-->
+                <!--添加大图和小图,,使页面在各个尺寸的界面都能正常显示-->
+                <div class="item active" data-img-lage = "img/slide_01_2000x410.jpg" data-img-xs = "img/slide_01_640x340.jpg"></div>
+                <div class="item" data-img-lage = "img/slide_02_2000x410.jpg" data-img-xs = "img/slide_02_640x340.jpg"></div>
+                <div class="item" data-img-lage = "img/slide_03_2000x410.jpg" data-img-xs = "img/slide_03_640x340.jpg"></div>
+                <div class="item" data-img-lage = "img/slide_04_2000x410.jpg" data-img-xs = "img/slide_04_640x340.jpg"></div>
+            </div>
+
+            <!-- 左右的控制按钮 -->
+            <a class="left carousel-control" href="#index_lunbotu" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#index_lunbotu" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+    </section>
+    <!--特色介绍-->
+    <section id="tesejieshao" class="tesejieshao hidden-xs">
+        <!--栅格化, 大屏幕的时候是三列,每一列占4分
+        中等屏幕的时候站两列,每一列占6分
+        小屏幕的时候消失-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 text-center">
+                    <!--媒体对象-->
+                    <div class="media">
+                        <div class="media-left">
+                           <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="icon-uniE907"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">支付交易保障</h4>
+                            <p>银联支付全程保证支付安全</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--立即预约-->
+    <section id="lijiyuyue" class="lijiyuyue">
+        <div class="container">
+            <p class="pull-left"><i class="icon-uniE906"></i> 现在有<span>458</span>人在排队,累计月月交易成功<span>4895748</span>次,什么是预约投标? <a href="">立即预约</a></p>
+            <p class="pull-right hidden-xs hidden-sm"><i class="icon-uniE905"></i> 微金所企业宣传片</p>
+        </div>
+    </section>
+    <!--产品介绍-->
+    <section id="products" class="products">
+        <div class="container">
+            <!-- 标签栏的选项卡 -->
+
+            <!--实现标签的横向滚动:
+                1. 给ul添加一个容器,这个容器有横向滚动条
+                2. 动态设置ul的宽度,宽度根据内容大小决定
+                3. 宽度即:所有li的宽度的和-->
+            <div class="nav-wapper">
+                <ul class="nav nav-tabs" role="tablist">
+                    <!--data-toggle : 表示该标签是一个什么功能的标签-->
+                    <li role="presentation" class="active"><a href="#item_01" aria-controls="item_01" role="tab" data-toggle="tab">特别推荐</a></li>
+                    <li role="presentation"><a href="#item_02" aria-controls="item_02" role="tab" data-toggle="tab">微投资</a></li>
+                    <li role="presentation"><a href="#item_03" aria-controls="item_03" role="tab" data-toggle="tab">微小宝</a></li>
+                    <li role="presentation"><a href="#item_04" aria-controls="item_04" role="tab" data-toggle="tab">微消费</a></li>
+                    <li role="presentation"><a href="#item_05" aria-controls="item_05" role="tab" data-toggle="tab">微增利</a></li>
+                    <li role="presentation"><a href="#item_06" aria-controls="item_06" role="tab" data-toggle="tab">微金宝</a></li>
+                    <li role="presentation"><a href="#item_07" aria-controls="item_07" role="tab" data-toggle="tab">微转让</a></li>
+                    <li class="pull-right hidden-sm hidden-xs"><a href="#">更多</a></li>
+                </ul>
+            </div>
+            <!-- 选项卡的内容页面 -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="item_01">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo active">
+                                <div class="panel-heading">
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo">
+                                <div class="panel-heading">
+                                    <!--tooltips实现的效果是鼠标放上的时候,出现提示字-->
+                                    <p class="tooltips">
+                                        <a class="badge badge-one" data-toggle="tooltip" data-placement="top" title="北京欢迎你" href="#">京</a>
+                                        <a class="badge badge-two" data-toggle="tooltip" data-placement="top" title="上海欢迎你" href="#">沪</a>
+                                    </p>
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo">
+                                <div class="panel-heading">
+                                    <p class="tooltips">
+                                        <a class="badge badge-one" data-toggle="tooltip" data-placement="top" title="北京欢迎你" href="#">京</a>
+                                        <a class="badge badge-two" data-toggle="tooltip" data-placement="top" title="上海欢迎你" href="#">沪</a>
+                                    </p>
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo disable">
+                                <div class="panel-heading">
+                                    <p class="tooltips">
+                                        <a class="badge badge-one" data-toggle="tooltip" data-placement="top" title="北京欢迎你" href="#">京</a>
+                                        <a class="badge badge-two" data-toggle="tooltip" data-placement="top" title="上海欢迎你" href="#">沪</a>
+                                    </p>
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo">
+                                <div class="panel-heading">
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="panel panel-weijinsuo">
+                                <div class="panel-heading">
+                                    <p class="tooltips">
+                                        <a class="badge badge-one" data-toggle="tooltip" data-placement="top" title="北京欢迎你" href="#">京</a>
+                                        <a class="badge badge-two" data-toggle="tooltip" data-placement="top" title="上海欢迎你" href="#">沪</a>
+                                    </p>
+                                    <p class="panel-heading-title"><strong>8</strong><sub>%</sub></p>
+                                    <p><span>年利率</span></p>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>新手体验表0008期</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-left">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <p>起步价</p>
+                                            <p><strong>1000.00</strong><sub>万</sub></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="item_02">微投资</div>
+                <div role="tabpanel" class="tab-pane fade" id="item_03">微小宝</div>
+                <div role="tabpanel" class="tab-pane fade" id="item_04">微消费</div>
+                <div role="tabpanel" class="tab-pane fade" id="item_05">微增利</div>
+                <div role="tabpanel" class="tab-pane fade" id="item_06">微金宝</div>
+                <div role="tabpanel" class="tab-pane fade" id="item_07">微转让</div>
+            </div>
+        </div>
+    </section>
+    <!--新闻列表-->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-2">
+                    <div class="news-title">全部新闻</div>
+                </div>
+                <div class="col-sm-2">
+                    <ul class="nav nav-pills nav-stacked">
+                        <!--data-title来记录每个li的标题,点击的时候可以通过这个来获取到标题-->
+                        <li role="presentation" class="active"><a data-toggle="tab" role="tab" data-title="全部新闻" href="#news01"><i class="icon-news01"></i></a></li>
+                        <li role="presentation"><a data-toggle="tab" role="tab" data-title="媒体新闻" href="#news02"><i class="icon-news02"></i></a></li>
+                        <li role="presentation"><a data-toggle="tab" role="tab" data-title="行业资讯" href="#news03"><i class="icon-news03"></i></a></li>
+                        <li role="presentation"><a data-toggle="tab" role="tab" data-title="社会热点" href="#news04"><i class="icon-news04"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="news01">
+                            <ul>
+                                <li>我是第一个选项卡的内容</li>
+                                <li>我是第一个选项卡的内容</li>
+                                <li>我是第一个选项卡的内容</li>
+                                <li>我是第一个选项卡的内容</li>
+                                <li>我是第一个选项卡的内容</li>
+                                <li>我是第一个选项卡的内容</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="news02">
+                            <ul>
+                                <li>我是第四个选项卡的内容</li>
+                                <li>我是第四个选项卡的内容</li>
+                                <li>我是第四个选项卡的内容</li>
+                                <li>我是第四个选项卡的内容</li>
+                                <li>我是第四个选项卡的内容</li>
+                                <li>我是第四个选项卡的内容</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="news03">
+                            <ul>
+                                <li>我是第五个选项卡的内容</li>
+                                <li>我是第五个选项卡的内容</li>
+                                <li>我是第五个选项卡的内容</li>
+                                <li>我是第五个选项卡的内容</li>
+                                <li>我是第五个选项卡的内容</li>
+                                <li>我是第五个选项卡的内容</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="news04">
+                            <ul>
+                                <li>我是第七个选项卡的内容</li>
+                                <li>我是第七个选项卡的内容</li>
+                                <li>我是第七个选项卡的内容</li>
+                                <li>我是第七个选项卡的内容</li>
+                                <li>我是第七个选项卡的内容</li>
+                                <li>我是第七个选项卡的内容</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--合作伙伴-->
+    <section id="hzhb" class="hzhb text-center">
+        <div class="container">
+            <h3>合作伙伴</h3>
+            <ul class="center-block">
+                <li><a href="#"><i class="icon-uniE930"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92F"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92E"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92A"></i></a></li>
+                <li><a href="#"><i class="icon-uniE929"></i></a></li>
+                <li><a href="#"><i class="icon-uniE931"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92C"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92B"></i></a></li>
+                <li><a href="#"><i class="icon-uniE92D"></i></a></li>
+            </ul>
+            
+        </div>
+    </section>
+
+    <div class="footer" id="footer">
+
+    </div>
+    <!--模态框-->
+    <div class="modal fade" id="login_form" tabindex="-1" role="dialog" aria-labelledby="login_form_title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="login_form_title">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <!--登录的表单结构-->
+                    <form class="form-horizontal"> <!--此处表示该表单是横向排列的-->
+                        <div class="form-group"> <!--form-group表示一个表单组-->
+                            <label for="inputEmail3" class="col-sm-2 control-label">邮箱:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="请输入邮箱地址">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="请输入登录密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 记住密码
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--bootstrap的所有组件都是依赖jQUery的-->
+    <script src="libs/jQuery/jquery-3.3.1.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.js">
+    </script>
+
+</body>
+</html>

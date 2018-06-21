@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件之间传递数据</title>
+    <script src="../libs/vue/vue.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <login :parentmsg="msg" @func="btn"></login>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "我是父元素的数据"
+            },
+            methods: {
+                btn(){
+                    console.log("我是父组件的点击事件");
+                }
+            },
+            // 私有的组件, 只能在id为app的标签内使用
+            components: {
+                login: {
+                    template: "<h3>我是子组件 ==> {{parentmsg}}</h3>",
+                    // 父组件传过来的方法是只读的
+                    props: ["parentmsg"]
+                    // 组件中的data必须是一个方法, 通过return返回数据; 这些数据可读可写
+                    // data: function(){
+                    //     return {
+                    //         msg: "我是子元素的数据"
+                    //     }
+                    // }
+                },
+                register: {
+                    template: "<h3>我是注册组件</h3>"
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

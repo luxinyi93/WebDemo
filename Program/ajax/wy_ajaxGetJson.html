@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wy_ajaxGetJson</title>
+</head>
+<body>
+    <button id="user">获取单个json数据</button>
+    <div id="info"></div>
+
+    <br><br>
+
+    <button id="users">获取多个json数据</button>
+    <div id="infos"></div>
+</body>
+</html>
+<script>
+    var user = document.getElementById("user");
+    var info = document.getElementById("info");
+    user.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "json/user.json", true);
+        xhr.onreadystatechange = function () {
+            if (this.status == 200 && this.readyState == 4){
+                var userInfo = JSON.parse(this.responseText);
+                var input = "";
+                input += "<ul>" +
+                    "<li>name: "+ userInfo.name +"</li>"+
+                    "<li>age: "+ userInfo.age +"</li>"+
+                    "<li>city: "+ userInfo.city +"</li>"
+                    "</ul>"
+                info.innerHTML = input;
+            }
+        }
+        xhr.send();
+    }
+
+    var users = document.getElementById("users");
+    var infos = document.getElementById("infos");
+    users.onclick = function (){
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "json/users.json", true);
+        xhr.onreadystatechange = function () {
+            if (this.status == 200 && this.readyState == 4){
+                var usersInfo = JSON.parse(this.responseText);
+                var input = "";
+                for (var i in usersInfo){
+                    input +=
+                        "<ul>" +
+                            "<li>"+ usersInfo[i].name + "</li>"+
+                            "<li>"+ usersInfo[i].age + "</li>"+
+                            "<li>"+ usersInfo[i].city + "</li>"+
+                        "</ul>"
+                }
+                document.getElementById("infos").innerHTML = input;
+            }
+        }
+        xhr.send();
+    }
+</script>

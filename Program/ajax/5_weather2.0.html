@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_weather2.0</title>
+    <style>
+        .weather {
+            width: 300px;
+            height: 500px;
+            background-color: #ffceac;
+            margin: 50px auto;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .weather .btn {
+            height: 40px;
+            background-color: #ffab42;
+            padding-top: 20px;
+        }
+
+        .weather .info {
+            margin-top: 10px;
+            background-color: #9fff59;
+
+        }
+    </style>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="js/template.js"></script>
+    <script id="weatherInfo" type="text/html">
+        {{if weather}}
+        {{each weather as value}}
+        <div>
+            <span>日期: {{value.date}}</span>
+            <ul>
+                <li>白天天气:{{value.info.day[1]}}</li>
+                <li>白天温度:{{value.info.day[2]}}</li>
+                <li>白天风向:{{value.info.day[3]}}</li>
+                <li>白天风力:{{value.info.day[4]}}</li>
+            </ul>
+            <ul>
+                <li>晚上天气:{{value.info.night[1]}}</li>
+                <li>晚上温度:{{value.info.night[2]}}</li>
+                <li>晚上风向:{{value.info.night[3]}}</li>
+                <li>晚上风力:{{value.info.night[4]}}</li>
+            </ul>
+        </div>
+        {{/each}}
+        {{/if}}
+    </script>
+    <script type="text/javascript">
+
+
+        function callback(data) {
+            var html = template("weatherInfo", data);
+            // 用template得到的数据是html格式的标签,所以要用html方法插入进去
+//            info.html = html;
+            $('#info').html(html);
+
+            console.log("获取到的数据:" + data.toString());
+        }
+
+        //    cities.onchange = function () {
+        //    }
+        window.onload = function () {
+            var query = document.getElementById("query");
+            var city = document.getElementById('city');
+            city.onchange = function () {
+                info.innerHTML = '';
+            }
+            query.onclick = function () {
+                var cityCode = city.value;
+                var url = "http://cdn.weather.hao.360.cn/api_weather_info.php?app=hao360&_jsonp=callback&code=" + cityCode;
+                var script = document.createElement("script");
+                console.log("cityName = " + cityCode);
+                script.src = url;
+                document.body.appendChild(script);
+            }
+        }
+        //        info.innerHTML = "";
+
+
+    </script>
+
+
+</head>
+<body>
+<div class="weather" id="weather">
+    <div class="btn">
+        <select name="city" id="city">
+            <option value="101010100">北京</option>
+            <option value="101020100">上海</option>
+            <option value="101280101">广州</option>
+            <option value="101280601">深圳</option>
+        </select>
+        <button class="query" id="query">查询</button>
+    </div>
+    <div class="info" id="info">
+
+    </div>
+
+</div>
+</body>
+</html>

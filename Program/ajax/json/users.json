@@ -1,0 +1,21 @@
+[
+	{
+	"name": "zhangsan",
+	"age": 21,
+	"city": "beijing"
+	},
+
+	{
+	"name": "lisi",
+	"age": 25,
+	"city": "shanghai"
+	},
+
+	{
+	"name": "wangwu",
+	"age": 46,
+	"city": "guangzhou"
+	}
+]
+
+
